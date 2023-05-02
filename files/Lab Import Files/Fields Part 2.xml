@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2023-03-23 17:00:11">
+<di_key action="INSERT_OR_UPDATE">
+<display_name>Dollar Value</display_name>
+<group_index>1</group_index>
+<key_group display_value="Expense Table">e1dd00e247ad2910d92d7395d36d435e</key_group>
+<name>dollarvalue</name>
+<order>11</order>
+<sys_class_name>di_key</sys_class_name>
+<sys_created_by>mzadmin</sys_created_by>
+<sys_created_on>2023-03-15 21:06:29</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_id>0e2e80e247ad2910d92d7395d36d433e</sys_id>
+<sys_mod_count>8</sys_mod_count>
+<sys_name>Dollar Value</sys_name>
+<sys_package display_value="Student Financial Aid" source="x_snc_sfin_aid">57c1c9ca479d6910d92d7395d36d4362</sys_package>
+<sys_policy/>
+<sys_scope display_value="Student Financial Aid">57c1c9ca479d6910d92d7395d36d4362</sys_scope>
+<sys_update_name>di_key_0e2e80e247ad2910d92d7395d36d433e</sys_update_name>
+<sys_updated_by>sharedservice.worker</sys_updated_by>
+<sys_updated_on>2023-03-15 21:57:55</sys_updated_on>
+<target_field>dollar_value</target_field>
+<target_table>x_snc_sfin_aid_estimated_expenses</target_table>
+<task_definition display_value="Financial Aid Request Form">4a2cc86247ad2910d92d7395d36d4318</task_definition>
+<total_used_positive_samples>51</total_used_positive_samples>
+<type>Text</type>
+</di_key>
+<di_key action="INSERT_OR_UPDATE">
+<display_name>Expense Type</display_name>
+<group_index>0</group_index>
+<key_group display_value="Expense Table">e1dd00e247ad2910d92d7395d36d435e</key_group>
+<name>expensetype</name>
+<order>11</order>
+<sys_class_name>di_key</sys_class_name>
+<sys_created_by>mzadmin</sys_created_by>
+<sys_created_on>2023-03-15 21:05:40</sys_created_on>
+<sys_domain>global</sys_domain>
+<sys_id>26fdcca247ad2910d92d7395d36d431d</sys_id>
+<sys_mod_count>9</sys_mod_count>
+<sys_name>Expense Type</sys_name>
+<sys_package display_value="Student Financial Aid" source="x_snc_sfin_aid">57c1c9ca479d6910d92d7395d36d4362</sys_package>
+<sys_policy/>
+<sys_scope display_value="Student Financial Aid">57c1c9ca479d6910d92d7395d36d4362</sys_scope>
+<sys_update_name>di_key_26fdcca247ad2910d92d7395d36d431d</sys_update_name>
+<sys_updated_by>sharedservice.worker</sys_updated_by>
+<sys_updated_on>2023-03-15 21:57:55</sys_updated_on>
+<target_field>expense_type</target_field>
+<target_table>x_snc_sfin_aid_estimated_expenses</target_table>
+<task_definition display_value="Financial Aid Request Form">4a2cc86247ad2910d92d7395d36d4318</task_definition>
+<total_used_positive_samples>51</total_used_positive_samples>
+<type>Text</type>
+</di_key>
+</unload>
