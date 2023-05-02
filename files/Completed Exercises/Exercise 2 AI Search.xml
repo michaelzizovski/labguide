@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2023-04-05 16:26:39">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Student Financial Aid">57c1c9ca479d6910d92d7395d36d4362</application>
+<application_name>Student Financial Aid</application_name>
+<application_scope>x_snc_sfin_aid</application_scope>
+<application_version>1.0.0</application_version>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>2. AI Search Exercise 2</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>5bd11ae8500621107f447fa9874c5671</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-04-05 16:26:39</sys_created_on>
+<sys_id>27875f491d4221107f44af7d2b7ffc6e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-04-05 16:26:39</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Student Financial Aid">57c1c9ca479d6910d92d7395d36d4362</application>
+<category>customer</category>
+<comments/>
+<name>ais_search_profile_ais_genius_result_configuration_m2m_9ba2962c500621107f447fa9874c56b6</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="ais_search_profile_ais_genius_result_configuration_m2m"><ais_search_profile_ais_genius_result_configuration_m2m action="INSERT_OR_UPDATE"><genius_result_configuration display_value="Q&amp;A">f8bc086408e71010f877b349f72d9dfe</genius_result_configuration><order>100</order><profile display_value="Student Financial Aid Profile">efc1b7c2832525501ddcc730ceaad3c1</profile><sys_class_name>ais_search_profile_ais_genius_result_configuration_m2m</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-04-03 22:08:55</sys_created_on><sys_id>9ba2962c500621107f447fa9874c56b6</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Q&amp;A.Student Financial Aid Profile</sys_name><sys_package display_value="Student Financial Aid" source="x_snc_sfin_aid">57c1c9ca479d6910d92d7395d36d4362</sys_package><sys_policy/><sys_scope display_value="Student Financial Aid">57c1c9ca479d6910d92d7395d36d4362</sys_scope><sys_update_name>ais_search_profile_ais_genius_result_configuration_m2m_9ba2962c500621107f447fa9874c56b6</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-04-03 22:08:55</sys_updated_on></ais_search_profile_ais_genius_result_configuration_m2m></record_update>]]></payload>
+<payload_hash>-2102060103</payload_hash>
+<remote_update_set display_value="2. AI Search Exercise 2">27875f491d4221107f44af7d2b7ffc6e</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-04-05 16:26:39</sys_created_on>
+<sys_id>e7875f491d4221107f44af7d2b7ffc6e</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>187492a84fe0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-04-05 16:26:39</sys_updated_on>
+<table/>
+<target_name>Q&amp;A.Student Financial Aid Profile</target_name>
+<type>AI Search Search Profile Genius Result C</type>
+<update_domain>global</update_domain>
+<update_guid>b1b2d62c1a062110168a461e4de8f740</update_guid>
+<update_guid_history>b1b2d62c1a062110168a461e4de8f740:-2102060103</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>

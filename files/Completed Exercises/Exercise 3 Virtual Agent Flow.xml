@@ -1,0 +1,2672 @@
+<?xml version="1.0" encoding="UTF-8"?><unload unload_date="2023-04-20 16:45:10">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Student Financial Aid">57c1c9ca479d6910d92d7395d36d4362</application>
+<application_name>Student Financial Aid</application_name>
+<application_scope>x_snc_sfin_aid</application_scope>
+<application_version>1.0.0</application_version>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description>Exercise 3 Virtual Agent flow completed. Import this update set for a completed version of Exercise 3.</description>
+<inserted/>
+<name>Exercise 3 Virtual Agent Flow - Completed</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>a8faec862d1221107f44d39608f9297f</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-04-20 16:45:09</sys_created_on>
+<sys_id>0dab6cc62d1221107f44d39608f92981</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-04-20 16:45:09</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Student Financial Aid">57c1c9ca479d6910d92d7395d36d4362</application>
+<category>customer</category>
+<comments/>
+<name>sys_cb_design_topic_cbf26351dd9221107f44d21e9818d627</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_design_topic"><sys_cb_design_topic action="INSERT_OR_UPDATE"><compiled_topic display_value="Financial Aid Request VA Flow">b8acd2a4504621107f447fa9874c56cd</compiled_topic><design_definition>{"type":"FlowTopic","type":"FlowTopic","triggers":[{"type":"Trigger","name":"4ac53c6c00fb450b9a14a8e47039a47c","triggerType":"request","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"id":"4ac53c6c00fb450b9a14a8e47039a47c"}],"goals":[{"name":"primary","trigger_id":"4ac53c6c00fb450b9a14a8e47039a47c","nodes":[{"type":"StartGoal","type":"StartGoal","goal_id":"primary","greeting_msg":{"type":"String","type":"String","mode":"string","value":"gs.getMessageLang(\"Greetings! I can help you submit a Financial Aid Application Request or provide you with the information to successfully submit a request.\", vaContext.getRequesterLang())"},"id":"dd1ea7b28fb54c4f9e932952144530f7","name":"Start"},{"type":"TerminateGoal","type":"TerminateGoal","goal_id":"primary","confirmation_msg":{"type":"String","type":"String","mode":"string","value":""},"id":"91b1e29f62584c2494121b2451e11e6a","name":"End"},{"type":"ChoiceInputPrompt","type":"ChoiceInputPrompt","expression_mode":"simple","metadataScript":"","cardName":"","cardFields":[],"id":"5d740a3fc57146a2bf3bf170deffd4f6","name":"Financial Aid topic options","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"variable_id":"b5733c0d092e4db6b08dfd027debd677","message":{"type":"String","type":"String","mode":"string","value":"gs.getMessageLang(\"Here is how I can help you. Please choose an option from the following.\", vaContext.getRequesterLang())"},"skippable":{"type":"Applicability","type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":false}},{"type":"Decision","type":"Decision","name":"Decision","branches":[{"type":"Branch","type":"Branch","label":"Branch 1: Upload","expression":{"type":"Applicability","type":"Applicability","mode":"query","value":"financial_aid_topic_options=upload form"},"id":"eb2b30e2a38b4479875147004b82733a","name":"Branch 1: Upload"},{"type":"Branch","type":"Branch","label":"Branch 3: Get Information","expression":{"type":"Applicability","type":"Applicability","mode":"query","value":"financial_aid_topic_options=get info"},"id":"5a4c493571504b4997b551f57ece0c08","name":"Branch 3: Get Information"},{"type":"Branch","type":"Branch","label":"Branch 2: Download","expression":{"type":"Applicability","type":"Applicability","mode":"query","value":"financial_aid_topic_options=download form"},"id":"01add596e468421c9eaada7b9599b706","name":"Branch 2: Download"}],"id":"9d4d274d22af4cf1ba15eb4f72728677","goal_id":"primary"},{"type":"InputPrompt","type":"InputPrompt","variable_id":"2c8dc927411948c8a3a71f49ad3e495b","message":{"type":"String","type":"String","mode":"string","value":"gs.getMessageLang(\"Please upload your Financial Aid PDF\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"skippable":{"type":"Applicability","type":"Applicability","mode":"script","value":"false"},"id":"c7e4175a37cf4ecbb7b2a18a3c66bbe1","name":"Upload File","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"}},{"type":"CRUDAction","type":"CRUDAction","mode":"create","query":"student={{vaInputs.user}}^u_state=New^u_contact_type=Self Service","variable_id":"2da4ceb466c44591b89ce4aece51a2c1","id":"bed558932c0841628e87b1c61e10b22a","name":"Financial Aid Record Creation","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"}},{"type":"RecordOutputPrompt","type":"RecordOutputPrompt","mode":"variable","table":"x_snc_sfin_aid_financial_aid","variable_id":"2da4ceb466c44591b89ce4aece51a2c1","fields":["number","student","sys_created_on"],"id":"7ef31c87cc7d44b5951e8ca24462df07","name":"Financial Aid Record Card","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"condition":{"type":"Condition","mode":"glide_query","value":""}},{"type":"TextOutputPrompt","type":"TextOutputPrompt","value":[{"type":"String","type":"String","mode":"string","value":"gs.getMessageLang(\"Above is the provided number for your reference. Please wait as we verify your information.\", vaContext.getRequesterLang())"}],"id":"838df255588246029c77a756bf260e22","name":"Verification Wait","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"secure":false},{"type":"ScriptedAction","type":"ScriptedAction","script":"(function execute() {\n   vaVars.DocIntelCheck = '';// Placeholder variable for Financial Aid Record State\n    gfin = new GlideRecord ('x_snc_sfin_aid_financial_aid');\n    gfin.addQuery('sys_id',vaInputs.financial_aid_record_creation); // Query the created Financial Aid Record\n    gfin.query();\n\n           while(gfin.next()){\n                vaVars.DocIntelCheck = gfin.getValue('u_state'); // Gather the State field\n           }\n})()\n","id":"57885e62ef3c4b71935be058fb31d58b","name":"Check for DocIntel Updates","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"}},{"type":"TextOutputPrompt","type":"TextOutputPrompt","value":[{"type":"String","type":"String","mode":"string","value":"gs.getMessageLang(\"Please wait...\", vaContext.getRequesterLang())"}],"id":"3a07b3af03e643e28d288f5c40ecf104","name":"Wait Node","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"secure":false},{"type":"Decision","type":"Decision","name":"Decision","branches":[{"type":"Branch","type":"Branch","label":"Branch Looper: DocIntel Not Ready","expression":{"type":"Applicability","type":"Applicability","mode":"script","value":"(function execute() {\n    if(vaVars.DocIntelCheck != 'Processed')\n    return true;\n})()\n"},"id":"03e30fd229fa49898b6c5dd8089c67cb","name":"Branch Looper: DocIntel Not Ready"},{"type":"Branch","type":"Branch","label":"Branch 1A: DocIntel Processed","expression":{"type":"Applicability","type":"Applicability","mode":"script","value":"(function execute() {\n   if(vaVars.DocIntelCheck == 'Processed')\n    return true;\n})()\n"},"id":"cdcc79a4fbfd46b68e6bc5ad61cea6ea","name":"Branch 1A: DocIntel Processed"}],"id":"5729466652064dde8c255e5064498e3e","goal_id":"primary"},{"type":"Decision","type":"Decision","name":"Decision","branches":[{"type":"Branch","type":"Branch","label":"Branch 1B: FinVerify is False","expression":{"type":"Applicability","type":"Applicability","mode":"script","value":"(function execute() {\n   if(vaVars.FinVerify == false) // check if finVerify is False if so continue this branch\n    return true;\n})()\n"},"id":"a29fa1f16c3d4e619903708beb03d517","name":"Branch 1B: FinVerify is False"},{"type":"Branch","type":"Branch","label":"Branch 1C: FinVerify is True","expression":{"type":"Applicability","type":"Applicability","mode":"script","value":"(function execute() {\n   if(vaVars.FinVerify == true) // check if finVerify is False if so continue this branch\n    return true;\n})()\n"},"id":"ddd3741a02824625a62e974c2f1799a3","name":"Branch 1C: FinVerify is True"}],"id":"213915bf327a420395e2a8317ec416c6","goal_id":"primary"},{"type":"TextOutputPrompt","type":"TextOutputPrompt","value":[{"type":"String","type":"String","mode":"string","value":"gs.getMessageLang(\"Dear User, the request you submitted is invalid. The user ID does not exist or is not your ID. Students are not able to submit a request on another students behalf. This submission will be cancelled.\", vaContext.getRequesterLang())"}],"id":"53567607b3224370ab91fcf1ca208f58","name":"Invalid Submission","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"secure":false},{"type":"Decision","type":"Decision","name":"Decision","branches":[{"type":"Branch","type":"Branch","label":"Branch 1D: Review Needed","expression":{"type":"Applicability","type":"Applicability","mode":"script","value":" (function execute() {\n         if(vaVars.ReviewNeeded == true)\n         return true;\n     })()"},"id":"4afc76fbaaf848d9aadcbd0c313a88f1","name":"Branch 1D: Review Needed"},{"type":"Branch","type":"Branch","label":"Branch 1E: Review not needed","expression":{"type":"Applicability","type":"Applicability","mode":"script","value":"(function execute() {\n   if(vaVars.ReviewNeeded == false)\n   return true;\n})()\n"},"id":"297be5eedfe14f4fa62c3f6476e180db","name":"Branch 1E: Review not needed"}],"id":"0ab4c1afdb9c4cb59bc5930ab909dea0","goal_id":"primary"},{"type":"TextOutputPrompt","type":"TextOutputPrompt","value":[{"type":"String","type":"String","mode":"string","value":"gs.getMessageLang(\"One or more expense values have been inputted incorrectly. Please navigate to the portal view to fix.\", vaContext.getRequesterLang())"}],"id":"0e5fbbd3634b4e96a6267a9000cee639","name":"Invalid Submission","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"secure":false},{"type":"LinkOutputPrompt","type":"LinkOutputPrompt","header":{"type":"String","type":"String","mode":"string","value":"gs.getMessageLang(\"View ticket form\", vaContext.getRequesterLang())"},"label":{"type":"String","type":"String","mode":"string","value":""},"url":{"type":"String","type":"String","mode":"script","value":" (function execute() {\n\n    var url = 'https://'+ gs.getProperty('instance_name') + '.lab.service-now.com/unow?sys_id='\n    + vaInputs.financial_aid_record_creation \n    + '&amp;view=sp&amp;id=financial_aid&amp;table=x_snc_sfin_aid_financial_aid';\n   \n    return url;\n     })()"},"link_type":"single","multi_link_script":"","id":"b2f76c6f84f448c3b619d5fb045c4f22","name":"Portal Link","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"}},{"type":"CRUDAction","type":"CRUDAction","mode":"read","read_mode":"variable","query":"student={{vaInputs.financial_aid_record_creation.student}}","variable_id":"782d8512a9c646f1a3710b62f8e7de00","id":"4ea7d5e95e7d452ea535bff0ff0b149d","name":"User Qualifies","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"condition":{"type":"Condition","mode":"glide_query","value":"student={{vaInputs.financial_aid_record_creation.student}}"}},{"type":"Decision","type":"Decision","name":"Decision","branches":[{"type":"Branch","type":"Branch","label":"Branch 1F: Doesn't Qualify","expression":{"type":"Applicability","type":"Applicability","mode":"script","value":"(function execute() {\n    //if use doesn't qualify continue on this branch\n   if(vaInputs.user_qualifies.qualification_check == false)\n    return true;\n})()\n"},"id":"a4d9d53b6d5743e9b887cc27852913e4","name":"Branch 1F: Doesn't Qualify"},{"type":"Branch","type":"Branch","label":"Branch 1G: Does Qualify","expression":{"type":"Applicability","type":"Applicability","mode":"script","value":"(function execute() {\n   if(vaInputs.user_qualifies.qualification_check == true)\n    return true;\n})()\n"},"id":"858038e7f2da45c0a0ba043064a75c8b","name":"Branch 1G: Does Qualify"}],"id":"1a173faa9abf4dd4ac23bbf6ad1502ec","goal_id":"primary"},{"type":"TextOutputPrompt","type":"TextOutputPrompt","value":[{"type":"String","type":"String","mode":"string","value":"gs.getMessageLang(\"Thank you for submitting. The financial team will be reviewing your request.\", vaContext.getRequesterLang())"}],"id":"91473697c55b44e883fb375b83a905a7","name":"Submission Confirmation","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"secure":false},{"type":"TextOutputPrompt","type":"TextOutputPrompt","value":[{"type":"String","type":"String","mode":"string","value":"gs.getMessageLang(\"Congrats you pre-qualify for assistance! Your request has been completed!\", vaContext.getRequesterLang())"}],"id":"54b488bda9044279af5b91abb50c9427","name":"Submission Congratulations","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"secure":false},{"type":"ChoiceInputPrompt","type":"ChoiceInputPrompt","expression_mode":"simple","metadataScript":"","cardName":"","cardFields":[],"id":"bb94ecf3be6747da850e8859af59f0ea","name":"Upload Value","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"variable_id":"55e0cb617e80416fbbf174239f064c42","message":{"type":"String","type":"String","mode":"string","value":"gs.getMessageLang(\"Do you want to upload your document now?\", vaContext.getRequesterLang())"},"skippable":{"type":"Applicability","type":"Applicability","mode":"script","value":"false"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true}},{"type":"Decision","type":"Decision","name":"Decision","branches":[{"type":"Branch","type":"Branch","label":"Branch 2A: Upload Now","expression":{"type":"Applicability","type":"Applicability","mode":"query","value":"upload_value=Yes"},"id":"b5e0d8a0d90544a09669a5f440d66908","name":"Branch 2A: Upload Now"},{"type":"Branch","type":"Branch","label":"Branch 2B: Upload Later","expression":{"type":"Applicability","type":"Applicability","mode":"query","value":"upload_value=No"},"id":"27c8ea1c0d3847c89880094642ea280a","name":"Branch 2B: Upload Later"}],"id":"1bda97f2e36a4e13b777b0bd7092407f","goal_id":"primary"},{"type":"TextOutputPrompt","type":"TextOutputPrompt","value":[{"type":"String","type":"String","mode":"string","value":"gs.getMessageLang(\"Thank you for downloading the Financial Aid Request form. You can revisit the chat and submit your form at a later date.\", vaContext.getRequesterLang())"}],"id":"62d44140440b4157ae7f9b9b5cea236f","name":"Upload Later Confirmation","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"secure":false},{"type":"InputPrompt","type":"InputPrompt","variable_id":"a0f2d2b99c014ae59ace2d143dbaad19","message":{"type":"String","type":"String","mode":"string","value":"gs.getMessageLang(\"What can I assist you with?\", vaContext.getRequesterLang())"},"nlu_entity_binding":{"type":"NLUEntityBinding","allow_text_input":false,"use_confirmation_prompt":true},"skippable":{"type":"Applicability","type":"Applicability","mode":"script","value":"false"},"id":"ec577ab551e140ebac29792453bb26f8","name":"Enter Search Description","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"formatType":"Text","validationScript":""},{"type":"ScriptedAction","type":"ScriptedAction","script":"(function execute(){\n\n    // The following code uses a default vaSystem method to attach the uploaded attachment to our target record    \n    vaSystem.attachToRecord(vaInputs.upload_file.getValue(),'x_snc_sfin_aid_financial_aid',vaInputs.financial_aid_record_creation);\n\n    })()","id":"19e0798eb29c4421aaa14c4fa83df3a4","name":"Upload Record Script","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"}},{"type":"LibraryCall","type":"LibraryCall","library_topic_name":"Pause","library_topic_id":"da36dc0f534e2010c232ddeeff7b12d4","parameter-mappings":[{"parameter-name":"seconds","value":{"type":"String","type":"String","mode":"string","value":"25"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}}],"return-value-mappings":[],"id":"33775167050d4970af5ef76b8ae0a900","name":"Pause Node","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"}},{"type":"ScriptedAction","type":"ScriptedAction","script":"(function execute() {\n    // Script include to check the Verification of Student ID and submitted Estimated Expense Values\n       vaVars.FinVerify = new FinRegexVerification().FinancialAidRegex(vaInputs.financial_aid_record_creation.student,vaInputs.financial_aid_record_creation.student_id);\n    })()","id":"ccb8d055c07b4936974077d963c03720","name":"Financial Aid Verification","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"}},{"type":"CRUDAction","type":"CRUDAction","mode":"update","query":"u_state=Cancelled","variable_id":"2da4ceb466c44591b89ce4aece51a2c1","id":"2a1b8c96f65a41fc82677925f88d267a","name":"Cancel request","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"}},{"type":"ScriptedAction","type":"ScriptedAction","script":"(function execute() {\n    \n    vaSystem.sendBatchedMessages(); // send any batched messages\n    vaVars.ReviewNeeded = false; // set review needed to false\n    var grExp = new GlideRecord('x_snc_sfin_aid_estimated_expenses') // expense Table\n    grExp.addEncodedQuery('financial_aid='+ vaInputs.financial_aid_record_creation);\n    grExp.query();\n\n      while(grExp.next()){\n\n         var VerifyReg = new FinRegexVerification();\n         var fieldMessage='';\n\n         fieldMessage = VerifyReg.ExpenseVerify( grExp.expense_type,grExp.dollar_value); \n         // call expenseverify script method\n          if(fieldMessage != 'Pass'){\n            // if it did not pass set the expense record to ReviewNeeded = true\n                vaVars.ReviewNeeded = true;\n                grExp.setValue('review_needed',true);\n                grExp.update();\n                 break;\n                }\n      }\n    })()","id":"57fae8e013ee4cf68cd13cbfe087db3f","name":"Expense Script Validation","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"}},{"type":"HtmlOutputPrompt","type":"HtmlOutputPrompt","height":0,"width":0,"id":"87e6328ced294f8c9d28e2f3f52f8cac","name":"Download","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"value":{"type":"String","type":"String","mode":"string","value":"&lt;html&gt;\n &lt;body&gt;\n&lt;!-- This creates a link of the attachment from the attachment table--&gt;\n&lt;p&gt;\n&lt;a href='sys_attachment.do?sys_id=769d847e47696910d92d7395d36d4343' rel='nofollow'&gt; Financial Aid Request Form PDF&lt;/a&gt;\n&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;"},"secure":false},{"type":"LibraryCall","type":"LibraryCall","library_topic_name":"AI Search","library_topic_id":"b19775fa536310103296ddeeff7b12ff","parameter-mappings":[{"parameter-name":"search_term","value":{"type":"String","type":"String","mode":"string","value":"{{vaInputs.enter_search_description}}"},"metadata":{"type":"String","list":false,"items":[],"use_items":false}},{"parameter-name":"search_application_configuration","value":{"type":"String","type":"String","mode":"string","value":"fdb27706832525501ddcc730ceaad328"},"metadata":{"type":"Reference","list":false,"items":[],"use_items":false,"table":"sys_search_context_config"}},{"parameter-name":"ask_another_search","value":{"type":"String","type":"String","mode":"string","value":"false"},"metadata":{"type":"True/False","list":false,"items":[],"use_items":false}}],"return-value-mappings":[{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"geniussearchresults","main_topic_mapped_variable_name":"geniussearchresults"},{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"searchresults","main_topic_mapped_variable_name":"searchresults"},{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"shouldaskinfohelpful","main_topic_mapped_variable_name":"shouldaskinfohelpful"},{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"newsearchterm","main_topic_mapped_variable_name":"newsearchterm"},{"main_topic_variable_namespace":"vaInputs","library_topic_return_parameter_name":"shouldrunfallbacktopic","main_topic_mapped_variable_name":"shouldrunfallbacktopic"}],"id":"361c1695597f429484f6dc656274e559","name":"AI Search","goal_id":"primary","applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"}}],"edges":[{"type":"Edge","source_node_id":"dd1ea7b28fb54c4f9e932952144530f7","target_node_id":"5d740a3fc57146a2bf3bf170deffd4f6","id":"78f7975f37f0461eb97c397ba2d3e707"},{"type":"Edge","source_node_id":"5d740a3fc57146a2bf3bf170deffd4f6","target_node_id":"9d4d274d22af4cf1ba15eb4f72728677","id":"e0fafc04fda54b8bb38196e6f4a2b3d2"},{"type":"Edge","source_node_id":"9d4d274d22af4cf1ba15eb4f72728677","target_node_id":"c7e4175a37cf4ecbb7b2a18a3c66bbe1","branch_id":"eb2b30e2a38b4479875147004b82733a","id":"96367deff81649e3899a70e980e69cdd","name":"eb2b30e2a38b4479875147004b82733a"},{"type":"Edge","source_node_id":"c7e4175a37cf4ecbb7b2a18a3c66bbe1","target_node_id":"bed558932c0841628e87b1c61e10b22a","id":"739dd8cfd9474c2991d5770485804749"},{"type":"Edge","source_node_id":"7ef31c87cc7d44b5951e8ca24462df07","target_node_id":"838df255588246029c77a756bf260e22","id":"9f1b5d70bc0a4fc5bda6ae4e8ae3c253"},{"type":"Edge","source_node_id":"838df255588246029c77a756bf260e22","target_node_id":"57885e62ef3c4b71935be058fb31d58b","id":"7174958bd54040349fcde94ca29f147b"},{"type":"Edge","source_node_id":"57885e62ef3c4b71935be058fb31d58b","target_node_id":"3a07b3af03e643e28d288f5c40ecf104","id":"a5e0124dd5c54476b9925f1e5db28beb"},{"type":"Edge","source_node_id":"3a07b3af03e643e28d288f5c40ecf104","target_node_id":"5729466652064dde8c255e5064498e3e","id":"357d204d174a4a1d95ba051322946cbe"},{"type":"Edge","source_node_id":"213915bf327a420395e2a8317ec416c6","target_node_id":"53567607b3224370ab91fcf1ca208f58","branch_id":"a29fa1f16c3d4e619903708beb03d517","id":"06e61d475ab4477c8912009e5f289517","name":"a29fa1f16c3d4e619903708beb03d517"},{"type":"Edge","source_node_id":"0ab4c1afdb9c4cb59bc5930ab909dea0","target_node_id":"0e5fbbd3634b4e96a6267a9000cee639","branch_id":"4afc76fbaaf848d9aadcbd0c313a88f1","id":"a5932a9a0324440193b1a4285dfc253c","name":"4afc76fbaaf848d9aadcbd0c313a88f1"},{"type":"Edge","source_node_id":"0e5fbbd3634b4e96a6267a9000cee639","target_node_id":"b2f76c6f84f448c3b619d5fb045c4f22","id":"7aef3ce880474f11ab4caabbb57b4dc4"},{"type":"Edge","source_node_id":"b2f76c6f84f448c3b619d5fb045c4f22","target_node_id":"91b1e29f62584c2494121b2451e11e6a","id":"29808cb1516c41a2a3847d36fe76f136"},{"type":"Edge","source_node_id":"0ab4c1afdb9c4cb59bc5930ab909dea0","target_node_id":"4ea7d5e95e7d452ea535bff0ff0b149d","branch_id":"297be5eedfe14f4fa62c3f6476e180db","id":"2cd5a46263964faba8396263a298b268","name":"297be5eedfe14f4fa62c3f6476e180db"},{"type":"Edge","source_node_id":"4ea7d5e95e7d452ea535bff0ff0b149d","target_node_id":"1a173faa9abf4dd4ac23bbf6ad1502ec","id":"f48b5648231e4517ab74be44ce789c62"},{"type":"Edge","source_node_id":"1a173faa9abf4dd4ac23bbf6ad1502ec","target_node_id":"91473697c55b44e883fb375b83a905a7","branch_id":"a4d9d53b6d5743e9b887cc27852913e4","id":"e28a3b8221d946feb0e7d94b5ea95feb","name":"a4d9d53b6d5743e9b887cc27852913e4"},{"type":"Edge","source_node_id":"91473697c55b44e883fb375b83a905a7","target_node_id":"91b1e29f62584c2494121b2451e11e6a","id":"c525e429105f4f9e87213d3e02d4f477"},{"type":"Edge","source_node_id":"1a173faa9abf4dd4ac23bbf6ad1502ec","target_node_id":"54b488bda9044279af5b91abb50c9427","branch_id":"858038e7f2da45c0a0ba043064a75c8b","id":"e8b6695660e243dfb282b18efd5ac281","name":"858038e7f2da45c0a0ba043064a75c8b"},{"type":"Edge","source_node_id":"54b488bda9044279af5b91abb50c9427","target_node_id":"91b1e29f62584c2494121b2451e11e6a","id":"b3ec9fc653f9431c9f5b0c29580ead16"},{"type":"Edge","source_node_id":"bb94ecf3be6747da850e8859af59f0ea","target_node_id":"1bda97f2e36a4e13b777b0bd7092407f","id":"fa6db76e30834c4a9b0fe46f09427546"},{"type":"Edge","source_node_id":"1bda97f2e36a4e13b777b0bd7092407f","target_node_id":"c7e4175a37cf4ecbb7b2a18a3c66bbe1","branch_id":"b5e0d8a0d90544a09669a5f440d66908","id":"f7776177d53546e69606f7afe9ceacc8","name":"b5e0d8a0d90544a09669a5f440d66908"},{"type":"Edge","source_node_id":"1bda97f2e36a4e13b777b0bd7092407f","target_node_id":"62d44140440b4157ae7f9b9b5cea236f","branch_id":"27c8ea1c0d3847c89880094642ea280a","id":"3deb1f42e97b47de98a0756881b2a50c","name":"27c8ea1c0d3847c89880094642ea280a"},{"type":"Edge","source_node_id":"62d44140440b4157ae7f9b9b5cea236f","target_node_id":"91b1e29f62584c2494121b2451e11e6a","id":"6ed7c0eff88846af94d466da8b46608a"},{"type":"Edge","source_node_id":"9d4d274d22af4cf1ba15eb4f72728677","target_node_id":"ec577ab551e140ebac29792453bb26f8","branch_id":"5a4c493571504b4997b551f57ece0c08","id":"6174b2ac1c47404e8b77013d13f0a833","name":"5a4c493571504b4997b551f57ece0c08"},{"type":"Edge","source_node_id":"bed558932c0841628e87b1c61e10b22a","target_node_id":"19e0798eb29c4421aaa14c4fa83df3a4","id":"97c75bcb0e2c4381a8d0f5080a0d4bf2"},{"type":"Edge","source_node_id":"19e0798eb29c4421aaa14c4fa83df3a4","target_node_id":"7ef31c87cc7d44b5951e8ca24462df07","id":"9486fd5f481d4098b91d56654f4c28e8"},{"type":"Edge","source_node_id":"5729466652064dde8c255e5064498e3e","target_node_id":"33775167050d4970af5ef76b8ae0a900","branch_id":"03e30fd229fa49898b6c5dd8089c67cb","id":"ab169fb1caa943138dff75a8842e028b","name":"03e30fd229fa49898b6c5dd8089c67cb"},{"type":"Edge","source_node_id":"33775167050d4970af5ef76b8ae0a900","target_node_id":"57885e62ef3c4b71935be058fb31d58b","id":"9d468b5485774552969a463560d96646"},{"type":"Edge","source_node_id":"5729466652064dde8c255e5064498e3e","target_node_id":"ccb8d055c07b4936974077d963c03720","branch_id":"cdcc79a4fbfd46b68e6bc5ad61cea6ea","id":"3af00dd66b344bc9927043bb76eca897","name":"cdcc79a4fbfd46b68e6bc5ad61cea6ea"},{"type":"Edge","source_node_id":"ccb8d055c07b4936974077d963c03720","target_node_id":"213915bf327a420395e2a8317ec416c6","id":"96ce67d1afd4434e9fa709308d64b73f"},{"type":"Edge","source_node_id":"53567607b3224370ab91fcf1ca208f58","target_node_id":"2a1b8c96f65a41fc82677925f88d267a","id":"ac5f2d471fe64f16a231536aaf14eae2"},{"type":"Edge","source_node_id":"2a1b8c96f65a41fc82677925f88d267a","target_node_id":"91b1e29f62584c2494121b2451e11e6a","id":"1e577071898549388dfca6822731499c"},{"type":"Edge","source_node_id":"213915bf327a420395e2a8317ec416c6","target_node_id":"57fae8e013ee4cf68cd13cbfe087db3f","branch_id":"ddd3741a02824625a62e974c2f1799a3","id":"9d3c7a934f43433bbc59f81dd32c35c7","name":"ddd3741a02824625a62e974c2f1799a3"},{"type":"Edge","source_node_id":"57fae8e013ee4cf68cd13cbfe087db3f","target_node_id":"0ab4c1afdb9c4cb59bc5930ab909dea0","id":"17d919f0ee434f9eafe034d58b3dd235"},{"type":"Edge","source_node_id":"9d4d274d22af4cf1ba15eb4f72728677","target_node_id":"87e6328ced294f8c9d28e2f3f52f8cac","branch_id":"01add596e468421c9eaada7b9599b706","id":"cdf60c0a38b043ec82fe6b7419ffaea9","name":"01add596e468421c9eaada7b9599b706"},{"type":"Edge","source_node_id":"87e6328ced294f8c9d28e2f3f52f8cac","target_node_id":"bb94ecf3be6747da850e8859af59f0ea","id":"4950e689df5c47ff9b88c3d98ccd4c91"},{"type":"Edge","source_node_id":"ec577ab551e140ebac29792453bb26f8","target_node_id":"361c1695597f429484f6dc656274e559","id":"065de797f4d0445685842fd098a0ec98"},{"type":"Edge","source_node_id":"361c1695597f429484f6dc656274e559","target_node_id":"91b1e29f62584c2494121b2451e11e6a","id":"2bcf2afdd0144a378b036bd62d9fd19c"}],"id":"primary"}],"script_variables":[{"type":"VariableDto","type":"String","name":"DocIntelCheck","value":{"type":"String","type":"String","mode":"string"},"list":false,"id":"d46e1f39052e4e0288d29157763b1e8d","formatType":"text","secure":false,"sensitive":false},{"type":"VariableDto","type":"String","name":"FinVerify","value":{"type":"String","type":"String","mode":"string"},"list":false,"id":"55018cb5de73445082e5c1acdb8c3610","formatType":"text","secure":false,"sensitive":false},{"type":"VariableDto","type":"String","name":"ReviewNeeded","value":{"type":"String","type":"String","mode":"string"},"list":false,"id":"a29e3981fec84ee58163d8684ebf6768","formatType":"text","secure":false,"sensitive":false}],"glide_variables":[{"type":"Reference","type":"Reference","table":"sys_user","id":"current-user","name":"user","formatType":"text","secure":false,"sensitive":false,"list":false},{"type":"Choice","type":"Choice","choices":[{"name":"Upload a completed form for submission","element":"upload form"},{"name":"Download a blank Financial Aid Request form","element":"download form"},{"name":"Get information on Financial Aid Requests","element":"get info"}],"id":"b5733c0d092e4db6b08dfd027debd677","name":"financial_aid_topic_options","formatType":"text","secure":false,"sensitive":false,"list":false},{"type":"File","type":"File","id":"2c8dc927411948c8a3a71f49ad3e495b","name":"upload_file","formatType":"text","secure":false,"sensitive":false,"list":false},{"type":"Reference","type":"Reference","table":"x_snc_sfin_aid_financial_aid","id":"2da4ceb466c44591b89ce4aece51a2c1","name":"financial_aid_record_creation","formatType":"text","secure":false,"sensitive":false,"list":false},{"type":"Reference","type":"Reference","table":"x_snc_sfin_aid_financial_assistance_qualifications","id":"782d8512a9c646f1a3710b62f8e7de00","name":"user_qualifies","formatType":"text","secure":false,"sensitive":false,"list":false},{"type":"Choice","type":"Choice","choices":[{"name":"Yes","element":"Yes"},{"name":"No","element":"No"}],"id":"55e0cb617e80416fbbf174239f064c42","name":"upload_value","formatType":"text","secure":false,"sensitive":false,"list":false},{"type":"VariableDto","type":"String","name":"enter_search_description","list":false,"id":"a0f2d2b99c014ae59ace2d143dbaad19","formatType":"Text","validationScript":"","secure":false,"sensitive":false},{"type":"Reference","type":"Reference","table":"","id":"3ecc70bdfcd8443abb7e2a5db08ea536","name":"cancel_request","formatType":"text","secure":false,"sensitive":false,"list":false},{"type":"VariableDto","type":"String","name":"geniussearchresults","list":false,"id":"9154bc6eb1c34ac799e0245943316563","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false},{"type":"VariableDto","type":"String","name":"searchresults","list":false,"id":"57cfde3b1d3844038836dc65440daf38","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false},{"type":"VariableDto","type":"String","name":"shouldaskinfohelpful","list":false,"id":"ebfa5231c4624231910bb8c13ac69846","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false},{"type":"VariableDto","type":"String","name":"newsearchterm","list":false,"id":"b5868542678741669eb907265a8e2203","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false},{"type":"VariableDto","type":"String","name":"shouldrunfallbacktopic","list":false,"id":"8d8eef2d163743d4a1ab479b2e4e4f01","formatType":"text","metadata":{"libraryMappingType":"output"},"secure":false,"sensitive":false}],"applicability":{"type":"Applicability","type":"Applicability","mode":"script","value":"true"},"roles":[],"scope":"57c1c9ca479d6910d92d7395d36d4362","domain":"global","topic_type":"STANDARD","channels":[],"id":"09a39a2c500621107f447fa9874c5607","name":"Financial Aid Request VA Flow","key_phrases":["Financial Aid Request VA Flow"],"nlu_provider":"","nlu_model":"","nlu_model_label":"","nlu_intent":"","nlu_intent_label":"","flexible_conversation_switching":false,"autopilot_topic":false,"design_categories":[],"triggerable_by_notification":false,"library":false,"csTopicId":"b8acd2a4504621107f447fa9874c56cd","readOnly":false,"nluMapping":"[]"}</design_definition><design_topic_id>09a39a2c500621107f447fa9874c5607</design_topic_id><graph>{
+  "graph_api_version": "1.0.42",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "dd1ea7b28fb54c4f9e932952144530f7": {
+          "id": "dd1ea7b28fb54c4f9e932952144530f7",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Greetings! I can help you submit a Financial Aid Application Request or provide you with the information to successfully submit a request."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          }
+        },
+        "91b1e29f62584c2494121b2451e11e6a": {
+          "id": "91b1e29f62584c2494121b2451e11e6a",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "5d740a3fc57146a2bf3bf170deffd4f6": {
+          "stepType": "ChoicePrompt",
+          "name": "Financial Aid topic options",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Here is how I can help you. Please choose an option from the following."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "b5733c0d092e4db6b08dfd027debd677",
+          "id": "5d740a3fc57146a2bf3bf170deffd4f6",
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": true
+        },
+        "9d4d274d22af4cf1ba15eb4f72728677": {
+          "id": "9d4d274d22af4cf1ba15eb4f72728677",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "c7e4175a37cf4ecbb7b2a18a3c66bbe1": {
+          "id": "c7e4175a37cf4ecbb7b2a18a3c66bbe1",
+          "stepType": "Prompt",
+          "name": "Upload File",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Please upload your Financial Aid PDF"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "2c8dc927411948c8a3a71f49ad3e495b"
+        },
+        "bed558932c0841628e87b1c61e10b22a": {
+          "id": "bed558932c0841628e87b1c61e10b22a",
+          "stepType": "CrudAction",
+          "name": "Financial Aid Record Creation",
+          "template": "student={{vaInputs.user}}^u_state=New^u_contact_type=Self Service",
+          "mode": "create",
+          "record": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "2da4ceb466c44591b89ce4aece51a2c1"
+        },
+        "7ef31c87cc7d44b5951e8ca24462df07": {
+          "id": "7ef31c87cc7d44b5951e8ca24462df07",
+          "stepType": "RecordOutput",
+          "name": "Financial Aid Record Card",
+          "variableId": "2da4ceb466c44591b89ce4aece51a2c1",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "variable",
+          "tableName": "x_snc_sfin_aid_financial_aid",
+          "fields": [
+            "number",
+            "student",
+            "sys_created_on"
+          ],
+          "cardDefinition": {
+            "name": "Record",
+            "value": "General"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": ""
+          }
+        },
+        "838df255588246029c77a756bf260e22": {
+          "id": "838df255588246029c77a756bf260e22",
+          "stepType": "TextOutput",
+          "name": "Verification Wait",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Above is the provided number for your reference. Please wait as we verify your information."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "4d6c4bb76c9741e5990a7670692a1e6f"
+            }
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "57885e62ef3c4b71935be058fb31d58b": {
+          "id": "57885e62ef3c4b71935be058fb31d58b",
+          "name": "Check for DocIntel Updates",
+          "script": "(function execute() {\n   vaVars.DocIntelCheck = '';// Placeholder variable for Financial Aid Record State\n    gfin = new GlideRecord ('x_snc_sfin_aid_financial_aid');\n    gfin.addQuery('sys_id',vaInputs.financial_aid_record_creation); // Query the created Financial Aid Record\n    gfin.query();\n\n           while(gfin.next()){\n                vaVars.DocIntelCheck = gfin.getValue('u_state'); // Gather the State field\n           }\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "3a07b3af03e643e28d288f5c40ecf104": {
+          "id": "3a07b3af03e643e28d288f5c40ecf104",
+          "stepType": "TextOutput",
+          "name": "Wait Node",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Please wait..."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "c068b846e9394b92af6ead6978fabcf3"
+            }
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "5729466652064dde8c255e5064498e3e": {
+          "id": "5729466652064dde8c255e5064498e3e",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "213915bf327a420395e2a8317ec416c6": {
+          "id": "213915bf327a420395e2a8317ec416c6",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "53567607b3224370ab91fcf1ca208f58": {
+          "id": "53567607b3224370ab91fcf1ca208f58",
+          "stepType": "TextOutput",
+          "name": "Invalid Submission",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Dear User, the request you submitted is invalid. The user ID does not exist or is not your ID. Students are not able to submit a request on another students behalf. This submission will be cancelled."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "da67525e827f4a51807ec48d794ed320"
+            }
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "0ab4c1afdb9c4cb59bc5930ab909dea0": {
+          "id": "0ab4c1afdb9c4cb59bc5930ab909dea0",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "0e5fbbd3634b4e96a6267a9000cee639": {
+          "id": "0e5fbbd3634b4e96a6267a9000cee639",
+          "stepType": "TextOutput",
+          "name": "Invalid Submission",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "One or more expense values have been inputted incorrectly. Please navigate to the portal view to fix."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "ec2e576491d24dbeaef977a053480a96"
+            }
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "b2f76c6f84f448c3b619d5fb045c4f22": {
+          "id": "b2f76c6f84f448c3b619d5fb045c4f22",
+          "stepType": "LinkOutput",
+          "name": "Portal Link",
+          "url": {
+            "value": " (function execute() {\n\n    var url = 'https://'+ gs.getProperty('instance_name') + '.lab.service-now.com/unow?sys_id='\n    + vaInputs.financial_aid_record_creation \n    + '&amp;view=sp&amp;id=financial_aid&amp;table=x_snc_sfin_aid_financial_aid';\n   \n    return url;\n     })()",
+            "mode": "script"
+          },
+          "label": {
+            "value": "",
+            "mode": "simple"
+          },
+          "header": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "View ticket form"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "linkType": "single",
+          "introMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "listOfLinks": ""
+        },
+        "4ea7d5e95e7d452ea535bff0ff0b149d": {
+          "id": "4ea7d5e95e7d452ea535bff0ff0b149d",
+          "stepType": "LookupRecord",
+          "name": "User Qualifies",
+          "condition": {
+            "mode": "glide_query",
+            "value": "student={{vaInputs.financial_aid_record_creation.student}}"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "782d8512a9c646f1a3710b62f8e7de00"
+        },
+        "1a173faa9abf4dd4ac23bbf6ad1502ec": {
+          "id": "1a173faa9abf4dd4ac23bbf6ad1502ec",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "91473697c55b44e883fb375b83a905a7": {
+          "id": "91473697c55b44e883fb375b83a905a7",
+          "stepType": "TextOutput",
+          "name": "Submission Confirmation",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Thank you for submitting. The financial team will be reviewing your request."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "db1a212a028b4182bab3509345f11f72"
+            }
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "54b488bda9044279af5b91abb50c9427": {
+          "id": "54b488bda9044279af5b91abb50c9427",
+          "stepType": "TextOutput",
+          "name": "Submission Congratulations",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Congrats you pre-qualify for assistance! Your request has been completed!"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "037ad0240f654f9aa31eedf66bb224a9"
+            }
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "bb94ecf3be6747da850e8859af59f0ea": {
+          "stepType": "ChoicePrompt",
+          "name": "Upload Value",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do you want to upload your document now?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "55e0cb617e80416fbbf174239f064c42",
+          "id": "bb94ecf3be6747da850e8859af59f0ea",
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "1bda97f2e36a4e13b777b0bd7092407f": {
+          "id": "1bda97f2e36a4e13b777b0bd7092407f",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "62d44140440b4157ae7f9b9b5cea236f": {
+          "id": "62d44140440b4157ae7f9b9b5cea236f",
+          "stepType": "TextOutput",
+          "name": "Upload Later Confirmation",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Thank you for downloading the Financial Aid Request form. You can revisit the chat and submit your form at a later date."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "919b92577843421a932344f9c8564fa6"
+            }
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "ec577ab551e140ebac29792453bb26f8": {
+          "id": "ec577ab551e140ebac29792453bb26f8",
+          "stepType": "Prompt",
+          "name": "Enter Search Description",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "What can I assist you with?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "a0f2d2b99c014ae59ace2d143dbaad19",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          }
+        },
+        "19e0798eb29c4421aaa14c4fa83df3a4": {
+          "id": "19e0798eb29c4421aaa14c4fa83df3a4",
+          "name": "Upload Record Script",
+          "script": "(function execute(){\n\n    // The following code uses a default vaSystem method to attach the uploaded attachment to our target record    \n    vaSystem.attachToRecord(vaInputs.upload_file.getValue(),'x_snc_sfin_aid_financial_aid',vaInputs.financial_aid_record_creation);\n\n    })()",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "33775167050d4970af5ef76b8ae0a900": {
+          "id": "33775167050d4970af5ef76b8ae0a900",
+          "stepType": "Component",
+          "name": "Pause Node",
+          "fields": [],
+          "reusableTopicId": "da36dc0f534e2010c232ddeeff7b12d4",
+          "reusableTopicChoice": "Pause",
+          "sourceType": "TOPIC_BLOCK",
+          "loading": false,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "inputs": {
+            "seconds": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "25"
+                    }
+                  ]
+                }
+              ],
+              "mode": "string",
+              "type": "String"
+            }
+          },
+          "outputs": [],
+          "outdatedNote": false,
+          "variableIds": []
+        },
+        "ccb8d055c07b4936974077d963c03720": {
+          "id": "ccb8d055c07b4936974077d963c03720",
+          "name": "Financial Aid Verification",
+          "script": "(function execute() {\n    // Script include to check the Verification of Student ID and submitted Estimated Expense Values\n       vaVars.FinVerify = new FinRegexVerification().FinancialAidRegex(vaInputs.financial_aid_record_creation.student,vaInputs.financial_aid_record_creation.student_id);\n    })()",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "2a1b8c96f65a41fc82677925f88d267a": {
+          "id": "2a1b8c96f65a41fc82677925f88d267a",
+          "stepType": "CrudAction",
+          "name": "Cancel request",
+          "template": "u_state=Cancelled",
+          "mode": "update",
+          "record": "2da4ceb466c44591b89ce4aece51a2c1",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "3ecc70bdfcd8443abb7e2a5db08ea536"
+        },
+        "57fae8e013ee4cf68cd13cbfe087db3f": {
+          "id": "57fae8e013ee4cf68cd13cbfe087db3f",
+          "name": "Expense Script Validation",
+          "script": "(function execute() {\n    \n    vaSystem.sendBatchedMessages(); // send any batched messages\n    vaVars.ReviewNeeded = false; // set review needed to false\n    var grExp = new GlideRecord('x_snc_sfin_aid_estimated_expenses') // expense Table\n    grExp.addEncodedQuery('financial_aid='+ vaInputs.financial_aid_record_creation);\n    grExp.query();\n\n      while(grExp.next()){\n\n         var VerifyReg = new FinRegexVerification();\n         var fieldMessage='';\n\n         fieldMessage = VerifyReg.ExpenseVerify( grExp.expense_type,grExp.dollar_value); \n         // call expenseverify script method\n          if(fieldMessage != 'Pass'){\n            // if it did not pass set the expense record to ReviewNeeded = true\n                vaVars.ReviewNeeded = true;\n                grExp.setValue('review_needed',true);\n                grExp.update();\n                 break;\n                }\n      }\n    })()",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "87e6328ced294f8c9d28e2f3f52f8cac": {
+          "id": "87e6328ced294f8c9d28e2f3f52f8cac",
+          "stepType": "HtmlOutput",
+          "name": "Download",
+          "value": "&lt;html&gt;\n &lt;body&gt;\n&lt;!-- This creates a link of the attachment from the attachment table--&gt;\n&lt;p&gt;\n&lt;a href='sys_attachment.do?sys_id=769d847e47696910d92d7395d36d4343' rel='nofollow'&gt; Financial Aid Request Form PDF&lt;/a&gt;\n&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;",
+          "height": "0",
+          "width": "0",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "361c1695597f429484f6dc656274e559": {
+          "id": "361c1695597f429484f6dc656274e559",
+          "stepType": "ReusableTopic",
+          "name": "AI Search",
+          "fields": [],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "reusableTopicChoice": "AI Search",
+          "reusableTopicId": "b19775fa536310103296ddeeff7b12ff",
+          "inputs": {
+            "search_term": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.enter_search_description}}",
+                        "displayValue": "Input Variables➛Enter Search Description"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string",
+              "type": "String"
+            },
+            "search_application_configuration": {
+              "value": "fdb27706832525501ddcc730ceaad328",
+              "mode": "string",
+              "type": "Reference",
+              "table": "sys_search_context_config"
+            },
+            "ask_another_search": {
+              "value": "false",
+              "mode": "simple",
+              "type": "True/False"
+            }
+          },
+          "outputs": [
+            {
+              "id": "9154bc6eb1c34ac799e0245943316563",
+              "value": "geniussearchresults",
+              "mapping": "geniussearchresults"
+            },
+            {
+              "id": "57cfde3b1d3844038836dc65440daf38",
+              "value": "searchresults",
+              "mapping": "searchresults"
+            },
+            {
+              "id": "ebfa5231c4624231910bb8c13ac69846",
+              "value": "shouldaskinfohelpful",
+              "mapping": "shouldaskinfohelpful"
+            },
+            {
+              "id": "b5868542678741669eb907265a8e2203",
+              "value": "newsearchterm",
+              "mapping": "newsearchterm"
+            },
+            {
+              "id": "8d8eef2d163743d4a1ab479b2e4e4f01",
+              "value": "shouldrunfallbacktopic",
+              "mapping": "shouldrunfallbacktopic"
+            }
+          ],
+          "variableIds": [
+            "9154bc6eb1c34ac799e0245943316563",
+            "57cfde3b1d3844038836dc65440daf38",
+            "ebfa5231c4624231910bb8c13ac69846",
+            "b5868542678741669eb907265a8e2203",
+            "8d8eef2d163743d4a1ab479b2e4e4f01"
+          ]
+        }
+      },
+      "edges": [
+        {
+          "id": "78f7975f37f0461eb97c397ba2d3e707",
+          "edgeType": "Edge",
+          "source": "dd1ea7b28fb54c4f9e932952144530f7",
+          "target": "5d740a3fc57146a2bf3bf170deffd4f6",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "e0fafc04fda54b8bb38196e6f4a2b3d2",
+          "edgeType": "Edge",
+          "source": "5d740a3fc57146a2bf3bf170deffd4f6",
+          "target": "9d4d274d22af4cf1ba15eb4f72728677",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "96367deff81649e3899a70e980e69cdd",
+          "edgeType": "Branch",
+          "source": "9d4d274d22af4cf1ba15eb4f72728677",
+          "target": "c7e4175a37cf4ecbb7b2a18a3c66bbe1",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.financial_aid_topic_options=upload form",
+            "mode": "query"
+          },
+          "label": "Branch 1: Upload"
+        },
+        {
+          "id": "739dd8cfd9474c2991d5770485804749",
+          "edgeType": "Edge",
+          "source": "c7e4175a37cf4ecbb7b2a18a3c66bbe1",
+          "target": "bed558932c0841628e87b1c61e10b22a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9f1b5d70bc0a4fc5bda6ae4e8ae3c253",
+          "edgeType": "Edge",
+          "source": "7ef31c87cc7d44b5951e8ca24462df07",
+          "target": "838df255588246029c77a756bf260e22",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "7174958bd54040349fcde94ca29f147b",
+          "edgeType": "Edge",
+          "source": "838df255588246029c77a756bf260e22",
+          "target": "57885e62ef3c4b71935be058fb31d58b",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a5e0124dd5c54476b9925f1e5db28beb",
+          "edgeType": "Edge",
+          "source": "57885e62ef3c4b71935be058fb31d58b",
+          "target": "3a07b3af03e643e28d288f5c40ecf104",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "357d204d174a4a1d95ba051322946cbe",
+          "edgeType": "Edge",
+          "source": "3a07b3af03e643e28d288f5c40ecf104",
+          "target": "5729466652064dde8c255e5064498e3e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "06e61d475ab4477c8912009e5f289517",
+          "edgeType": "Branch",
+          "source": "213915bf327a420395e2a8317ec416c6",
+          "target": "53567607b3224370ab91fcf1ca208f58",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n   if(vaVars.FinVerify == false) // check if finVerify is False if so continue this branch\n    return true;\n})()\n"
+          },
+          "label": "Branch 1B: FinVerify is False"
+        },
+        {
+          "id": "a5932a9a0324440193b1a4285dfc253c",
+          "edgeType": "Branch",
+          "source": "0ab4c1afdb9c4cb59bc5930ab909dea0",
+          "target": "0e5fbbd3634b4e96a6267a9000cee639",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": " (function execute() {\n         if(vaVars.ReviewNeeded == true)\n         return true;\n     })()"
+          },
+          "label": "Branch 1D: Review Needed"
+        },
+        {
+          "id": "7aef3ce880474f11ab4caabbb57b4dc4",
+          "edgeType": "Edge",
+          "source": "0e5fbbd3634b4e96a6267a9000cee639",
+          "target": "b2f76c6f84f448c3b619d5fb045c4f22",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "29808cb1516c41a2a3847d36fe76f136",
+          "edgeType": "Edge",
+          "source": "b2f76c6f84f448c3b619d5fb045c4f22",
+          "target": "91b1e29f62584c2494121b2451e11e6a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2cd5a46263964faba8396263a298b268",
+          "edgeType": "Branch",
+          "source": "0ab4c1afdb9c4cb59bc5930ab909dea0",
+          "target": "4ea7d5e95e7d452ea535bff0ff0b149d",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n   if(vaVars.ReviewNeeded == false)\n   return true;\n})()\n"
+          },
+          "label": "Branch 1E: Review not needed"
+        },
+        {
+          "id": "f48b5648231e4517ab74be44ce789c62",
+          "edgeType": "Edge",
+          "source": "4ea7d5e95e7d452ea535bff0ff0b149d",
+          "target": "1a173faa9abf4dd4ac23bbf6ad1502ec",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "e28a3b8221d946feb0e7d94b5ea95feb",
+          "edgeType": "Branch",
+          "source": "1a173faa9abf4dd4ac23bbf6ad1502ec",
+          "target": "91473697c55b44e883fb375b83a905a7",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    //if use doesn't qualify continue on this branch\n   if(vaInputs.user_qualifies.qualification_check == false)\n    return true;\n})()\n"
+          },
+          "label": "Branch 1F: Doesn't Qualify"
+        },
+        {
+          "id": "c525e429105f4f9e87213d3e02d4f477",
+          "edgeType": "Edge",
+          "source": "91473697c55b44e883fb375b83a905a7",
+          "target": "91b1e29f62584c2494121b2451e11e6a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "e8b6695660e243dfb282b18efd5ac281",
+          "edgeType": "Branch",
+          "source": "1a173faa9abf4dd4ac23bbf6ad1502ec",
+          "target": "54b488bda9044279af5b91abb50c9427",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n   if(vaInputs.user_qualifies.qualification_check == true)\n    return true;\n})()\n"
+          },
+          "label": "Branch 1G: Does Qualify"
+        },
+        {
+          "id": "b3ec9fc653f9431c9f5b0c29580ead16",
+          "edgeType": "Edge",
+          "source": "54b488bda9044279af5b91abb50c9427",
+          "target": "91b1e29f62584c2494121b2451e11e6a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "fa6db76e30834c4a9b0fe46f09427546",
+          "edgeType": "Edge",
+          "source": "bb94ecf3be6747da850e8859af59f0ea",
+          "target": "1bda97f2e36a4e13b777b0bd7092407f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "f7776177d53546e69606f7afe9ceacc8",
+          "edgeType": "Branch",
+          "source": "1bda97f2e36a4e13b777b0bd7092407f",
+          "target": "c7e4175a37cf4ecbb7b2a18a3c66bbe1",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.upload_value=Yes",
+            "mode": "query"
+          },
+          "label": "Branch 2A: Upload Now"
+        },
+        {
+          "id": "3deb1f42e97b47de98a0756881b2a50c",
+          "edgeType": "Branch",
+          "source": "1bda97f2e36a4e13b777b0bd7092407f",
+          "target": "62d44140440b4157ae7f9b9b5cea236f",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.upload_value=No",
+            "mode": "query"
+          },
+          "label": "Branch 2B: Upload Later"
+        },
+        {
+          "id": "6ed7c0eff88846af94d466da8b46608a",
+          "edgeType": "Edge",
+          "source": "62d44140440b4157ae7f9b9b5cea236f",
+          "target": "91b1e29f62584c2494121b2451e11e6a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "6174b2ac1c47404e8b77013d13f0a833",
+          "edgeType": "Branch",
+          "source": "9d4d274d22af4cf1ba15eb4f72728677",
+          "target": "ec577ab551e140ebac29792453bb26f8",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.financial_aid_topic_options=get info",
+            "mode": "query"
+          },
+          "label": "Branch 3: Get Information"
+        },
+        {
+          "id": "97c75bcb0e2c4381a8d0f5080a0d4bf2",
+          "edgeType": "Edge",
+          "source": "bed558932c0841628e87b1c61e10b22a",
+          "target": "19e0798eb29c4421aaa14c4fa83df3a4",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9486fd5f481d4098b91d56654f4c28e8",
+          "edgeType": "Edge",
+          "source": "19e0798eb29c4421aaa14c4fa83df3a4",
+          "target": "7ef31c87cc7d44b5951e8ca24462df07",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "ab169fb1caa943138dff75a8842e028b",
+          "edgeType": "Branch",
+          "source": "5729466652064dde8c255e5064498e3e",
+          "target": "33775167050d4970af5ef76b8ae0a900",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    if(vaVars.DocIntelCheck != 'Processed')\n    return true;\n})()\n"
+          },
+          "label": "Branch Looper: DocIntel Not Ready"
+        },
+        {
+          "id": "9d468b5485774552969a463560d96646",
+          "edgeType": "Edge",
+          "source": "33775167050d4970af5ef76b8ae0a900",
+          "target": "57885e62ef3c4b71935be058fb31d58b",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "3af00dd66b344bc9927043bb76eca897",
+          "edgeType": "Branch",
+          "source": "5729466652064dde8c255e5064498e3e",
+          "target": "ccb8d055c07b4936974077d963c03720",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n   if(vaVars.DocIntelCheck == 'Processed')\n    return true;\n})()\n"
+          },
+          "label": "Branch 1A: DocIntel Processed"
+        },
+        {
+          "id": "96ce67d1afd4434e9fa709308d64b73f",
+          "edgeType": "Edge",
+          "source": "ccb8d055c07b4936974077d963c03720",
+          "target": "213915bf327a420395e2a8317ec416c6",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "ac5f2d471fe64f16a231536aaf14eae2",
+          "edgeType": "Edge",
+          "source": "53567607b3224370ab91fcf1ca208f58",
+          "target": "2a1b8c96f65a41fc82677925f88d267a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "1e577071898549388dfca6822731499c",
+          "edgeType": "Edge",
+          "source": "2a1b8c96f65a41fc82677925f88d267a",
+          "target": "91b1e29f62584c2494121b2451e11e6a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9d3c7a934f43433bbc59f81dd32c35c7",
+          "edgeType": "Branch",
+          "source": "213915bf327a420395e2a8317ec416c6",
+          "target": "57fae8e013ee4cf68cd13cbfe087db3f",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n   if(vaVars.FinVerify == true) // check if finVerify is False if so continue this branch\n    return true;\n})()\n"
+          },
+          "label": "Branch 1C: FinVerify is True"
+        },
+        {
+          "id": "17d919f0ee434f9eafe034d58b3dd235",
+          "edgeType": "Edge",
+          "source": "57fae8e013ee4cf68cd13cbfe087db3f",
+          "target": "0ab4c1afdb9c4cb59bc5930ab909dea0",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "cdf60c0a38b043ec82fe6b7419ffaea9",
+          "edgeType": "Branch",
+          "source": "9d4d274d22af4cf1ba15eb4f72728677",
+          "target": "87e6328ced294f8c9d28e2f3f52f8cac",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.financial_aid_topic_options=download form",
+            "mode": "query"
+          },
+          "label": "Branch 2: Download"
+        },
+        {
+          "id": "4950e689df5c47ff9b88c3d98ccd4c91",
+          "edgeType": "Edge",
+          "source": "87e6328ced294f8c9d28e2f3f52f8cac",
+          "target": "bb94ecf3be6747da850e8859af59f0ea",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "065de797f4d0445685842fd098a0ec98",
+          "edgeType": "Edge",
+          "source": "ec577ab551e140ebac29792453bb26f8",
+          "target": "361c1695597f429484f6dc656274e559",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2bcf2afdd0144a378b036bd62d9fd19c",
+          "edgeType": "Edge",
+          "source": "361c1695597f429484f6dc656274e559",
+          "target": "91b1e29f62584c2494121b2451e11e6a",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "b5733c0d092e4db6b08dfd027debd677": {
+      "id": "b5733c0d092e4db6b08dfd027debd677",
+      "name": "financial_aid_topic_options",
+      "label": "Financial Aid Topic Options",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Upload a completed form for submission",
+          "value": "upload form"
+        },
+        {
+          "label": "Download a blank Financial Aid Request form",
+          "value": "download form"
+        },
+        {
+          "label": "Get information on Financial Aid Requests",
+          "value": "get info",
+          "checked": true
+        }
+      ],
+      "category": "vaInputs",
+      "nodeId": "5d740a3fc57146a2bf3bf170deffd4f6",
+      "isHidden": false
+    },
+    "2c8dc927411948c8a3a71f49ad3e495b": {
+      "id": "2c8dc927411948c8a3a71f49ad3e495b",
+      "name": "upload_file",
+      "label": "Upload File",
+      "varType": "file",
+      "secure": false,
+      "category": "vaInputs",
+      "nodeId": "c7e4175a37cf4ecbb7b2a18a3c66bbe1",
+      "isHidden": false
+    },
+    "2da4ceb466c44591b89ce4aece51a2c1": {
+      "id": "2da4ceb466c44591b89ce4aece51a2c1",
+      "name": "financial_aid_record_creation",
+      "label": "Financial Aid Record Creation",
+      "varType": "reference",
+      "table": "x_snc_sfin_aid_financial_aid",
+      "inactive": false,
+      "category": "vaInputs",
+      "nodeId": "7ef31c87cc7d44b5951e8ca24462df07",
+      "isHidden": false
+    },
+    "d46e1f39052e4e0288d29157763b1e8d": {
+      "id": "d46e1f39052e4e0288d29157763b1e8d",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "DocIntelCheck",
+      "label": "DocIntelCheck",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "55018cb5de73445082e5c1acdb8c3610": {
+      "id": "55018cb5de73445082e5c1acdb8c3610",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "FinVerify",
+      "label": "FinVerify",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "a29e3981fec84ee58163d8684ebf6768": {
+      "id": "a29e3981fec84ee58163d8684ebf6768",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "ReviewNeeded",
+      "label": "ReviewNeeded",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "782d8512a9c646f1a3710b62f8e7de00": {
+      "id": "782d8512a9c646f1a3710b62f8e7de00",
+      "name": "user_qualifies",
+      "label": "User Qualifies",
+      "varType": "reference",
+      "table": "x_snc_sfin_aid_financial_assistance_qualifications",
+      "category": "vaInputs",
+      "nodeId": "4ea7d5e95e7d452ea535bff0ff0b149d",
+      "isHidden": false
+    },
+    "55e0cb617e80416fbbf174239f064c42": {
+      "id": "55e0cb617e80416fbbf174239f064c42",
+      "name": "upload_value",
+      "label": "Upload Value",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Yes",
+          "value": "Yes"
+        },
+        {
+          "label": "No",
+          "value": "No"
+        }
+      ],
+      "category": "vaInputs",
+      "nodeId": "bb94ecf3be6747da850e8859af59f0ea",
+      "isHidden": false
+    },
+    "a0f2d2b99c014ae59ace2d143dbaad19": {
+      "id": "a0f2d2b99c014ae59ace2d143dbaad19",
+      "name": "enter_search_description",
+      "label": "Enter Search Description",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTY4MDU2MjIwMzg3OSBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "ec577ab551e140ebac29792453bb26f8",
+      "isHidden": false
+    },
+    "3ecc70bdfcd8443abb7e2a5db08ea536": {
+      "id": "3ecc70bdfcd8443abb7e2a5db08ea536",
+      "name": "cancel_request",
+      "label": "Cancel Request",
+      "varType": "reference",
+      "table": "",
+      "inactive": true,
+      "category": "vaInputs",
+      "nodeId": "2a1b8c96f65a41fc82677925f88d267a",
+      "isHidden": false
+    },
+    "9154bc6eb1c34ac799e0245943316563": {
+      "id": "9154bc6eb1c34ac799e0245943316563",
+      "name": "geniussearchresults",
+      "label": "Geniussearchresults",
+      "defaultValue": "geniussearchresults",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "nodeId": "361c1695597f429484f6dc656274e559",
+      "isHidden": false
+    },
+    "57cfde3b1d3844038836dc65440daf38": {
+      "id": "57cfde3b1d3844038836dc65440daf38",
+      "name": "searchresults",
+      "label": "Searchresults",
+      "defaultValue": "searchresults",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "nodeId": "361c1695597f429484f6dc656274e559",
+      "isHidden": false
+    },
+    "ebfa5231c4624231910bb8c13ac69846": {
+      "id": "ebfa5231c4624231910bb8c13ac69846",
+      "name": "shouldaskinfohelpful",
+      "label": "Shouldaskinfohelpful",
+      "defaultValue": "shouldaskinfohelpful",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "nodeId": "361c1695597f429484f6dc656274e559",
+      "isHidden": false
+    },
+    "b5868542678741669eb907265a8e2203": {
+      "id": "b5868542678741669eb907265a8e2203",
+      "name": "newsearchterm",
+      "label": "Newsearchterm",
+      "defaultValue": "newsearchterm",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "nodeId": "361c1695597f429484f6dc656274e559",
+      "isHidden": false
+    },
+    "8d8eef2d163743d4a1ab479b2e4e4f01": {
+      "id": "8d8eef2d163743d4a1ab479b2e4e4f01",
+      "name": "shouldrunfallbacktopic",
+      "label": "Shouldrunfallbacktopic",
+      "defaultValue": "shouldrunfallbacktopic",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "nodeId": "361c1695597f429484f6dc656274e559",
+      "isHidden": false
+    }
+  }
+}</graph><name>Financial Aid Request VA Flow</name><sys_class_name>sys_cb_design_topic</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-04-18 22:10:46</sys_created_on><sys_domain>global</sys_domain><sys_id>cbf26351dd9221107f44d21e9818d627</sys_id><sys_mod_count>2</sys_mod_count><sys_name>FlowTopic</sys_name><sys_package display_value="Student Financial Aid" source="x_snc_sfin_aid">57c1c9ca479d6910d92d7395d36d4362</sys_package><sys_policy/><sys_scope display_value="Student Financial Aid">57c1c9ca479d6910d92d7395d36d4362</sys_scope><sys_update_name>sys_cb_design_topic_cbf26351dd9221107f44d21e9818d627</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-04-20 16:44:05</sys_updated_on><type>FlowTopic</type></sys_cb_design_topic></record_update>]]></payload>
+<payload_hash>1044385853</payload_hash>
+<remote_update_set display_value="Exercise 3 Virtual Agent Flow - Completed">0dab6cc62d1221107f44d39608f92981</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-04-20 16:45:09</sys_created_on>
+<sys_id>01ab6cc62d1221107f44d39608f92982</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1879f8d39e10000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-04-20 16:45:09</sys_updated_on>
+<table/>
+<target_name>FlowTopic</target_name>
+<type>Published Topic</type>
+<update_domain>global</update_domain>
+<update_guid>996b28c655122110b32397a8884167a8</update_guid>
+<update_guid_history>996b28c655122110b32397a8884167a8:1044385853,a8e9ab596e922110f8f91ed768e03fae:120362871,87f263515b922110d20c9114a0f75329:1592176647</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Student Financial Aid">57c1c9ca479d6910d92d7395d36d4362</application>
+<category>customer</category>
+<comments/>
+<name>sys_cs_topic_b8acd2a4504621107f447fa9874c56cd</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cs_topic"><sys_cs_topic action="INSERT_OR_UPDATE"><active>true</active><applicability>true</applicability><autopilot_topic>false</autopilot_topic><cb_topic_id display_value="Financial Aid Request VA Flow">09a39a2c500621107f447fa9874c5607</cb_topic_id><channels/><definition>{"id":"09a39a2c500621107f447fa9874c5607","name":"Financial Aid Request VA Flow","system_topic":false,"autopilot_topic":false,"vendor_id":"c2f0b8f187033200246ddd4c97cb0bb9","description":"Financial Aid Request VA Flow","applicability":"true","categories":[],"key_phrases":["Financial Aid Request VA Flow"],"variables":[{"name":"DocIntelCheck","type":"java.lang.Object"},{"name":"FinVerify","type":"java.lang.Object"},{"name":"ReviewNeeded","type":"java.lang.Object"},{"name":"optionsCount_b5733c0d092e4db6b08dfd027debd677","type":"java.lang.Object"},{"name":"optionsCount_55e0cb617e80416fbbf174239f064c42","type":"java.lang.Object"},{"name":"__segment_trigger_4ac53c6c00fb450b9a14a8e47039a47c_done","type":"java.lang.Object","init_value":"false"},{"name":"previous_graph_node","type":"java.lang.Object"}],"fields":[{"type":"Reference","table_name":"sys_user","name":"user","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[]},{"type":"ID","name":"financial_aid_topic_options","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"dynamic_enum_list":{"name":"financial_aid_topic_options","props":[{"name":"value","isItemValue":true,"isPicture":false},{"name":"label","isItemValue":false,"isPicture":false}]},"binding":{"write_to":[],"enum_list":{"expression":"(function execute() {var vaRuntimeUtil = new global.VaTopicRuntimeUtil();vaVars.optionsCount_b5733c0d092e4db6b08dfd027debd677 = 0; var funcObj = {\"buildOptions\": function() {return [{\"value\":\"upload form\",\"label\":gs.getMessageLang(\"Upload a completed form for submission\", vaContext.getRequesterLang())},{\"value\":\"download form\",\"label\":gs.getMessageLang(\"Download a blank Financial Aid Request form\", vaContext.getRequesterLang())},{\"value\":\"get info\",\"label\":gs.getMessageLang(\"Get information on Financial Aid Requests\", vaContext.getRequesterLang())}];}};function isValid(option) {return !gs.nil(option) &amp;&amp; !gs.nil(option.value) &amp;&amp; !gs.nil(option.label);}function fixInvalid(invalidOption) {var fixedOption = {'value': 'no_data', 'label': 'no_data'};if (!gs.nil(invalidOption)) {fixedOption.value = !gs.nil(invalidOption.value) ? invalidOption.value : fixedOption.value;fixedOption.label = !gs.nil(invalidOption.label) ? invalidOption.label : fixedOption.label;}return fixedOption;}function normalizeKeys(obj){Object.keys(obj).forEach(function (key) {var k = key.toLowerCase();if (k !== key) {obj[k] = obj[key];delete obj[key];}});return (obj);}var choiceOptions = [];choiceOptions = vaRuntimeUtil.executeFunction(funcObj, 'buildOptions');var noOptions = gs.nil(choiceOptions) || choiceOptions.length==0;if (noOptions) {choiceOptions = [];}else {var invalidCount = 0;var normalizedChoiceOptions = [];for (var i = 0; i &lt; choiceOptions.length; i++) {normalizedChoiceOptions.push(normalizeKeys(choiceOptions[i]));}choiceOptions = normalizedChoiceOptions;for (var i = 0; i &lt; choiceOptions.length; i++) {if (gs.nil(choiceOptions[i].label)) {choiceOptions[i].label = choiceOptions[i].value;}}for (var i = 0; i &lt; choiceOptions.length; i++) {if (!isValid(choiceOptions[i])) {invalidCount++;choiceOptions[i] = fixInvalid(choiceOptions[i]);}}noOptions = invalidCount === choiceOptions.length;if (noOptions) {choiceOptions = [];}vaVars.optionsCount_b5733c0d092e4db6b08dfd027debd677 = choiceOptions.length;return choiceOptions;}})();"}},"metadata_script":""},{"type":"FileUpload","name":"upload_file","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[]},{"type":"Reference","table_name":"x_snc_sfin_aid_financial_aid","name":"financial_aid_record_creation","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[]},{"type":"Reference","table_name":"x_snc_sfin_aid_financial_assistance_qualifications","name":"user_qualifies","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[]},{"type":"ID","name":"upload_value","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"dynamic_enum_list":{"name":"upload_value","props":[{"name":"value","isItemValue":true,"isPicture":false},{"name":"label","isItemValue":false,"isPicture":false}]},"binding":{"write_to":[],"enum_list":{"expression":"(function execute() {var vaRuntimeUtil = new global.VaTopicRuntimeUtil();vaVars.optionsCount_55e0cb617e80416fbbf174239f064c42 = 0; var funcObj = {\"buildOptions\": function() {return [{\"value\":\"Yes\",\"label\":gs.getMessageLang(\"Yes\", vaContext.getRequesterLang())},{\"value\":\"No\",\"label\":gs.getMessageLang(\"No\", vaContext.getRequesterLang())}];}};function isValid(option) {return !gs.nil(option) &amp;&amp; !gs.nil(option.value) &amp;&amp; !gs.nil(option.label);}function fixInvalid(invalidOption) {var fixedOption = {'value': 'no_data', 'label': 'no_data'};if (!gs.nil(invalidOption)) {fixedOption.value = !gs.nil(invalidOption.value) ? invalidOption.value : fixedOption.value;fixedOption.label = !gs.nil(invalidOption.label) ? invalidOption.label : fixedOption.label;}return fixedOption;}function normalizeKeys(obj){Object.keys(obj).forEach(function (key) {var k = key.toLowerCase();if (k !== key) {obj[k] = obj[key];delete obj[key];}});return (obj);}var choiceOptions = [];choiceOptions = vaRuntimeUtil.executeFunction(funcObj, 'buildOptions');var noOptions = gs.nil(choiceOptions) || choiceOptions.length==0;if (noOptions) {choiceOptions = [];}else {var invalidCount = 0;var normalizedChoiceOptions = [];for (var i = 0; i &lt; choiceOptions.length; i++) {normalizedChoiceOptions.push(normalizeKeys(choiceOptions[i]));}choiceOptions = normalizedChoiceOptions;for (var i = 0; i &lt; choiceOptions.length; i++) {if (gs.nil(choiceOptions[i].label)) {choiceOptions[i].label = choiceOptions[i].value;}}for (var i = 0; i &lt; choiceOptions.length; i++) {if (!isValid(choiceOptions[i])) {invalidCount++;choiceOptions[i] = fixInvalid(choiceOptions[i]);}}noOptions = invalidCount === choiceOptions.length;if (noOptions) {choiceOptions = [];}vaVars.optionsCount_55e0cb617e80416fbbf174239f064c42 = choiceOptions.length;return choiceOptions;}})();"}},"metadata_script":""},{"type":"String","name":"enter_search_description","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"Reference","table_name":"","name":"cancel_request","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[]},{"type":"String","name":"geniussearchresults","unique":false,"key_phrases":[],"metadata":{"libraryMappingType":"output"},"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"searchresults","unique":false,"key_phrases":[],"metadata":{"libraryMappingType":"output"},"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"shouldaskinfohelpful","unique":false,"key_phrases":[],"metadata":{"libraryMappingType":"output"},"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"newsearchterm","unique":false,"key_phrases":[],"metadata":{"libraryMappingType":"output"},"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"shouldrunfallbacktopic","unique":false,"key_phrases":[],"metadata":{"libraryMappingType":"output"},"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"Boolean","name":"RootDecisionBranch_8c6be4c6ed122110f58a7abbbe0fc1e6","unique":false,"default_value":"true","key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[]},{"type":"String","name":"__silent_TextOutputPrompt_838df255588246029c77a756bf260e22","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_cdcc79a4fbfd46b68e6bc5ad61cea6ea","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_TextOutputPrompt_3a07b3af03e643e28d288f5c40ecf104","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_CRUDAction_4ea7d5e95e7d452ea535bff0ff0b149d","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Decision_0ab4c1afdb9c4cb59bc5930ab909dea0","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_LibraryCall_33775167050d4970af5ef76b8ae0a900","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_TerminateGoal_91b1e29f62584c2494121b2451e11e6a","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Decision_5729466652064dde8c255e5064498e3e","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_CRUDAction_bed558932c0841628e87b1c61e10b22a","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_eb2b30e2a38b4479875147004b82733a","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_ScriptedAction_57fae8e013ee4cf68cd13cbfe087db3f","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_ddd3741a02824625a62e974c2f1799a3","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_TextOutputPrompt_54b488bda9044279af5b91abb50c9427","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_LinkOutputPrompt_b2f76c6f84f448c3b619d5fb045c4f22","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_TextOutputPrompt_62d44140440b4157ae7f9b9b5cea236f","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_TextOutputPrompt_0e5fbbd3634b4e96a6267a9000cee639","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_RootDecisionBranch_4c6be4c64d122110f84b234065d4ace6","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Decision_1a173faa9abf4dd4ac23bbf6ad1502ec","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_LibraryCall_361c1695597f429484f6dc656274e559","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_4afc76fbaaf848d9aadcbd0c313a88f1","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_03e30fd229fa49898b6c5dd8089c67cb","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_HtmlOutputPrompt_87e6328ced294f8c9d28e2f3f52f8cac","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_a4d9d53b6d5743e9b887cc27852913e4","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Decision_1bda97f2e36a4e13b777b0bd7092407f","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Decision_RootDecision_0c6be4c6bf1221109a5ed6aea9d997e6","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_01add596e468421c9eaada7b9599b706","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_ScriptedAction_ccb8d055c07b4936974077d963c03720","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_ScriptedAction_57885e62ef3c4b71935be058fb31d58b","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_TextOutputPrompt_91473697c55b44e883fb375b83a905a7","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_RecordOutputPrompt_7ef31c87cc7d44b5951e8ca24462df07","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_297be5eedfe14f4fa62c3f6476e180db","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_StartGoal_dd1ea7b28fb54c4f9e932952144530f7","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_a29fa1f16c3d4e619903708beb03d517","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Decision_9d4d274d22af4cf1ba15eb4f72728677","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_5a4c493571504b4997b551f57ece0c08","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_b5e0d8a0d90544a09669a5f440d66908","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_CRUDAction_2a1b8c96f65a41fc82677925f88d267a","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Decision_213915bf327a420395e2a8317ec416c6","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_27c8ea1c0d3847c89880094642ea280a","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_TextOutputPrompt_53567607b3224370ab91fcf1ca208f58","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_ScriptedAction_19e0798eb29c4421aaa14c4fa83df3a4","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true},{"type":"String","name":"__silent_Branch_858038e7f2da45c0a0ba043064a75c8b","unique":false,"key_phrases":[],"mask_type":"NONE","list":false,"static_enum_list":[],"encrypt_if_secure":true}],"actions":[],"tasks":[{"type":"Consumer to system","show_as_button":true,"name":"primary","description":"primary","applicability":"vaVars.__segment_trigger_4ac53c6c00fb450b9a14a8e47039a47c_done==false &amp;&amp; true","mode":"Qmode","key_phrases":[],"greeting_msg":"vaInputs.initialize(\"user\");vaInputs.initialize(\"RootDecisionBranch_8c6be4c6ed122110f58a7abbbe0fc1e6\");vaInputs.initialize(\"__silent_CRUDAction_bed558932c0841628e87b1c61e10b22a\");vaInputs.initialize(\"__silent_Branch_b5e0d8a0d90544a09669a5f440d66908\");vaInputs.initialize(\"__silent_Branch_ddd3741a02824625a62e974c2f1799a3\");vaInputs.initialize(\"__silent_Decision_9d4d274d22af4cf1ba15eb4f72728677\");vaInputs.initialize(\"__silent_TerminateGoal_91b1e29f62584c2494121b2451e11e6a\");vaInputs.initialize(\"__silent_Branch_27c8ea1c0d3847c89880094642ea280a\");vaInputs.initialize(\"__silent_TextOutputPrompt_91473697c55b44e883fb375b83a905a7\");vaInputs.initialize(\"__silent_Branch_858038e7f2da45c0a0ba043064a75c8b\");vaInputs.initialize(\"__silent_TextOutputPrompt_3a07b3af03e643e28d288f5c40ecf104\");vaInputs.initialize(\"__silent_TextOutputPrompt_53567607b3224370ab91fcf1ca208f58\");vaInputs.initialize(\"__silent_LibraryCall_361c1695597f429484f6dc656274e559\");vaInputs.initialize(\"__silent_Branch_03e30fd229fa49898b6c5dd8089c67cb\");vaInputs.initialize(\"__silent_CRUDAction_2a1b8c96f65a41fc82677925f88d267a\");vaInputs.initialize(\"__silent_TextOutputPrompt_0e5fbbd3634b4e96a6267a9000cee639\");vaInputs.initialize(\"__silent_StartGoal_dd1ea7b28fb54c4f9e932952144530f7\");vaInputs.initialize(\"__silent_ScriptedAction_ccb8d055c07b4936974077d963c03720\");vaInputs.initialize(\"__silent_Decision_RootDecision_0c6be4c6bf1221109a5ed6aea9d997e6\");vaInputs.initialize(\"__silent_LibraryCall_33775167050d4970af5ef76b8ae0a900\");vaInputs.initialize(\"__silent_Branch_297be5eedfe14f4fa62c3f6476e180db\");vaInputs.initialize(\"__silent_TextOutputPrompt_838df255588246029c77a756bf260e22\");vaInputs.initialize(\"__silent_Decision_1bda97f2e36a4e13b777b0bd7092407f\");vaInputs.initialize(\"upload_file\");vaInputs.initialize(\"upload_value\");vaInputs.initialize(\"__silent_Decision_213915bf327a420395e2a8317ec416c6\");vaInputs.initialize(\"__silent_Branch_4afc76fbaaf848d9aadcbd0c313a88f1\");vaInputs.initialize(\"__silent_CRUDAction_4ea7d5e95e7d452ea535bff0ff0b149d\");vaInputs.initialize(\"financial_aid_topic_options\");vaInputs.initialize(\"__silent_Branch_a4d9d53b6d5743e9b887cc27852913e4\");vaInputs.initialize(\"__silent_TextOutputPrompt_62d44140440b4157ae7f9b9b5cea236f\");vaInputs.initialize(\"__silent_Decision_1a173faa9abf4dd4ac23bbf6ad1502ec\");vaInputs.initialize(\"__silent_Branch_01add596e468421c9eaada7b9599b706\");vaInputs.initialize(\"enter_search_description\");vaInputs.initialize(\"__silent_Branch_cdcc79a4fbfd46b68e6bc5ad61cea6ea\");vaInputs.initialize(\"__silent_Decision_0ab4c1afdb9c4cb59bc5930ab909dea0\");vaInputs.initialize(\"__silent_Branch_a29fa1f16c3d4e619903708beb03d517\");vaInputs.initialize(\"__silent_Branch_eb2b30e2a38b4479875147004b82733a\");vaInputs.initialize(\"__silent_ScriptedAction_57fae8e013ee4cf68cd13cbfe087db3f\");vaInputs.initialize(\"__silent_TextOutputPrompt_54b488bda9044279af5b91abb50c9427\");vaInputs.initialize(\"__silent_RecordOutputPrompt_7ef31c87cc7d44b5951e8ca24462df07\");vaInputs.initialize(\"__silent_LinkOutputPrompt_b2f76c6f84f448c3b619d5fb045c4f22\");vaInputs.initialize(\"__silent_ScriptedAction_19e0798eb29c4421aaa14c4fa83df3a4\");vaInputs.initialize(\"__silent_Decision_5729466652064dde8c255e5064498e3e\");vaInputs.initialize(\"__silent_Branch_RootDecisionBranch_4c6be4c64d122110f84b234065d4ace6\");vaInputs.initialize(\"__silent_HtmlOutputPrompt_87e6328ced294f8c9d28e2f3f52f8cac\");vaInputs.initialize(\"__silent_Branch_5a4c493571504b4997b551f57ece0c08\");vaInputs.initialize(\"__silent_ScriptedAction_57885e62ef3c4b71935be058fb31d58b\");null;","fields":[{"name":"__silent_Decision_RootDecision_0c6be4c6bf1221109a5ed6aea9d997e6","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"RootDecision_for_goal_primary___RootDecision_0c6be4c6bf1221109a5ed6aea9d997e6\";vaInputs.__silent_Decision_RootDecision_0c6be4c6bf1221109a5ed6aea9d997e6=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"RootDecision_for_goal_primary___RootDecision_0c6be4c6bf1221109a5ed6aea9d997e6\";var ackMsg=null;ackMsg=null;vaInputs.RootDecisionBranch_8c6be4c6ed122110f58a7abbbe0fc1e6=true;(function() {vaInputs.__silent_Branch_RootDecisionBranch_4c6be4c64d122110f84b234065d4ace6.reset();})();ackMsg;"},{"name":"__silent_Branch_RootDecisionBranch_4c6be4c64d122110f84b234065d4ace6","applicable":"vaVars.previous_graph_node==\"RootDecision_for_goal_primary___RootDecision_0c6be4c6bf1221109a5ed6aea9d997e6\" &amp;&amp; ((vaInputs.RootDecisionBranch_8c6be4c6ed122110f58a7abbbe0fc1e6.getValue() == true))","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"RootDecisionBranch_4c6be4c64d122110f84b234065d4ace6___RootDecisionBranch_4c6be4c64d122110f84b234065d4ace6\";vaInputs.__silent_Branch_RootDecisionBranch_4c6be4c64d122110f84b234065d4ace6=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"RootDecisionBranch_4c6be4c64d122110f84b234065d4ace6___RootDecisionBranch_4c6be4c64d122110f84b234065d4ace6\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_StartGoal_dd1ea7b28fb54c4f9e932952144530f7.reset();})();ackMsg;"},{"name":"__silent_StartGoal_dd1ea7b28fb54c4f9e932952144530f7","applicable":"vaVars.previous_graph_node==\"RootDecisionBranch_4c6be4c64d122110f84b234065d4ace6___RootDecisionBranch_4c6be4c64d122110f84b234065d4ace6\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Start___dd1ea7b28fb54c4f9e932952144530f7\";vaInputs.__silent_StartGoal_dd1ea7b28fb54c4f9e932952144530f7=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Start___dd1ea7b28fb54c4f9e932952144530f7\";var ackMsg=null;ackMsg=gs.getMessageLang(\"Greetings! I can help you submit a Financial Aid Application Request or provide you with the information to successfully submit a request.\", vaContext.getRequesterLang());(function() {vaInputs.financial_aid_topic_options.reset();})();ackMsg;"},{"name":"financial_aid_topic_options","applicable":"vaVars.previous_graph_node==\"Start___dd1ea7b28fb54c4f9e932952144530f7\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Financial Aid topic options___5d740a3fc57146a2bf3bf170deffd4f6\";gs.getMessageLang(\"Here is how I can help you. Please choose an option from the following.\", vaContext.getRequesterLang())","input_prompt_format_type":"text","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Financial Aid topic options___5d740a3fc57146a2bf3bf170deffd4f6\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_Branch_eb2b30e2a38b4479875147004b82733a.reset();})();(function() {vaInputs.__silent_Branch_5a4c493571504b4997b551f57ece0c08.reset();})();(function() {vaInputs.__silent_Branch_01add596e468421c9eaada7b9599b706.reset();})();(function() {vaInputs.__silent_Decision_9d4d274d22af4cf1ba15eb4f72728677.reset();})();ackMsg;"},{"name":"__silent_Decision_9d4d274d22af4cf1ba15eb4f72728677","applicable":"vaVars.previous_graph_node==\"Financial Aid topic options___5d740a3fc57146a2bf3bf170deffd4f6\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Decision___9d4d274d22af4cf1ba15eb4f72728677\";vaInputs.__silent_Decision_9d4d274d22af4cf1ba15eb4f72728677=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Decision___9d4d274d22af4cf1ba15eb4f72728677\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_Branch_eb2b30e2a38b4479875147004b82733a.reset();})();(function() {vaInputs.__silent_Branch_5a4c493571504b4997b551f57ece0c08.reset();})();(function() {vaInputs.__silent_Branch_01add596e468421c9eaada7b9599b706.reset();})();ackMsg;"},{"name":"__silent_Branch_eb2b30e2a38b4479875147004b82733a","applicable":"vaVars.previous_graph_node==\"Decision___9d4d274d22af4cf1ba15eb4f72728677\" &amp;&amp; ((vaInputs.financial_aid_topic_options.getValue() == \"upload form\"))","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Branch 1: Upload___eb2b30e2a38b4479875147004b82733a\";vaInputs.__silent_Branch_eb2b30e2a38b4479875147004b82733a=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Branch 1: Upload___eb2b30e2a38b4479875147004b82733a\";var ackMsg=null;ackMsg=null;(function() {vaInputs.upload_file.reset();})();ackMsg;"},{"name":"__silent_Branch_5a4c493571504b4997b551f57ece0c08","applicable":"vaVars.previous_graph_node==\"Decision___9d4d274d22af4cf1ba15eb4f72728677\" &amp;&amp; ((vaInputs.financial_aid_topic_options.getValue() == \"get info\"))","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Branch 3: Get Information___5a4c493571504b4997b551f57ece0c08\";vaInputs.__silent_Branch_5a4c493571504b4997b551f57ece0c08=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Branch 3: Get Information___5a4c493571504b4997b551f57ece0c08\";var ackMsg=null;ackMsg=null;(function() {vaInputs.enter_search_description.reset();})();ackMsg;"},{"name":"__silent_Branch_01add596e468421c9eaada7b9599b706","applicable":"vaVars.previous_graph_node==\"Decision___9d4d274d22af4cf1ba15eb4f72728677\" &amp;&amp; ((vaInputs.financial_aid_topic_options.getValue() == \"download form\"))","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Branch 2: Download___01add596e468421c9eaada7b9599b706\";vaInputs.__silent_Branch_01add596e468421c9eaada7b9599b706=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Branch 2: Download___01add596e468421c9eaada7b9599b706\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_HtmlOutputPrompt_87e6328ced294f8c9d28e2f3f52f8cac.reset();})();ackMsg;"},{"name":"enter_search_description","applicable":"vaVars.previous_graph_node==\"Branch 3: Get Information___5a4c493571504b4997b551f57ece0c08\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Enter Search Description___ec577ab551e140ebac29792453bb26f8\";gs.getMessageLang(\"What can I assist you with?\", vaContext.getRequesterLang())","input_prompt_format_type":"Text","input_prompt_validaton_script":"","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":true,"acknowledge_msg":"vaVars.previous_graph_node=\"Enter Search Description___ec577ab551e140ebac29792453bb26f8\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_LibraryCall_361c1695597f429484f6dc656274e559.reset();})();ackMsg;"},{"name":"__silent_HtmlOutputPrompt_87e6328ced294f8c9d28e2f3f52f8cac","applicable":"vaVars.previous_graph_node==\"Branch 2: Download___01add596e468421c9eaada7b9599b706\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Download___87e6328ced294f8c9d28e2f3f52f8cac\";vaInputs.__silent_HtmlOutputPrompt_87e6328ced294f8c9d28e2f3f52f8cac=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Download___87e6328ced294f8c9d28e2f3f52f8cac\";var ackMsg=null;ackMsg=(function execute() {var html=\"&lt;html&gt;  &lt;body&gt; &lt;!-- This creates a link of the attachment from the attachment table--&gt; &lt;p&gt; &lt;a href='sys_attachment.do?sys_id=769d847e47696910d92d7395d36d4343' rel='nofollow'&gt; Financial Aid Request Form PDF&lt;/a&gt; &lt;/p&gt; &lt;/body&gt; &lt;/html&gt;\";var type='html';var height=0;var width=0;return (function execute() {var outMsg = new sn_cs.SinglePartOutMsg();outMsg.setHtmlPart(html, type, height, width);return outMsg;})();})();(function() {vaInputs.upload_value.reset();})();ackMsg;"},{"name":"__silent_CRUDAction_bed558932c0841628e87b1c61e10b22a","applicable":"vaVars.previous_graph_node==\"Upload File___c7e4175a37cf4ecbb7b2a18a3c66bbe1\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Financial Aid Record Creation___bed558932c0841628e87b1c61e10b22a\";(function execute() {(function execute() {vaInputs.initialize(\"financial_aid_record_creation\");\nvar gr = new GlideRecord(\"x_snc_sfin_aid_financial_aid\");\ngr.initialize();\ngr.applyEncodedQuery(\"student=\" + vaInputs.user.getValue() + \"^u_state=New^u_contact_type=Self Service\");\ngr.insert();\nvaInputs.financial_aid_record_creation = gr;})();})();vaInputs.__silent_CRUDAction_bed558932c0841628e87b1c61e10b22a=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Financial Aid Record Creation___bed558932c0841628e87b1c61e10b22a\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_ScriptedAction_19e0798eb29c4421aaa14c4fa83df3a4.reset();})();ackMsg;"},{"name":"__silent_LibraryCall_361c1695597f429484f6dc656274e559","applicable":"vaVars.previous_graph_node==\"Enter Search Description___ec577ab551e140ebac29792453bb26f8\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"AI Search___361c1695597f429484f6dc656274e559\";(function execute() {(function execute() {vaSystem.invokeSubTopic('AI Search', JSON.stringify({\"type\":\"LibraryCall\",\"type\":\"LibraryCall\",\"library_topic_name\":\"AI Search\",\"library_topic_id\":\"b19775fa536310103296ddeeff7b12ff\",\"parameter-mappings\":[{\"parameter-name\":\"search_term\",\"value\":{\"type\":\"String\",\"type\":\"String\",\"mode\":\"string\",\"value\":\"{{vaInputs.enter_search_description}}\"},\"metadata\":{\"type\":\"String\",\"list\":false,\"use_items\":false}},{\"parameter-name\":\"search_application_configuration\",\"value\":{\"type\":\"String\",\"type\":\"String\",\"mode\":\"string\",\"value\":\"fdb27706832525501ddcc730ceaad328\"},\"metadata\":{\"type\":\"Reference\",\"list\":false,\"use_items\":false,\"table\":\"sys_search_context_config\"}},{\"parameter-name\":\"ask_another_search\",\"value\":{\"type\":\"String\",\"type\":\"String\",\"mode\":\"string\",\"value\":\"false\"},\"metadata\":{\"type\":\"True/False\",\"list\":false,\"use_items\":false}}],\"return-value-mappings\":[{\"main_topic_variable_namespace\":\"vaInputs\",\"library_topic_return_parameter_name\":\"geniussearchresults\",\"main_topic_mapped_variable_name\":\"geniussearchresults\"},{\"main_topic_variable_namespace\":\"vaInputs\",\"library_topic_return_parameter_name\":\"searchresults\",\"main_topic_mapped_variable_name\":\"searchresults\"},{\"main_topic_variable_namespace\":\"vaInputs\",\"library_topic_return_parameter_name\":\"shouldaskinfohelpful\",\"main_topic_mapped_variable_name\":\"shouldaskinfohelpful\"},{\"main_topic_variable_namespace\":\"vaInputs\",\"library_topic_return_parameter_name\":\"newsearchterm\",\"main_topic_mapped_variable_name\":\"newsearchterm\"},{\"main_topic_variable_namespace\":\"vaInputs\",\"library_topic_return_parameter_name\":\"shouldrunfallbacktopic\",\"main_topic_mapped_variable_name\":\"shouldrunfallbacktopic\"}],\"id\":\"361c1695597f429484f6dc656274e559\",\"name\":\"AI Search\",\"goal_id\":\"primary\",\"applicability\":{\"type\":\"Applicability\",\"type\":\"Applicability\",\"mode\":\"script\",\"value\":\"true\"}}));})();})();vaInputs.__silent_LibraryCall_361c1695597f429484f6dc656274e559=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"AI Search___361c1695597f429484f6dc656274e559\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_TerminateGoal_91b1e29f62584c2494121b2451e11e6a.reset();})();ackMsg;"},{"name":"upload_value","applicable":"vaVars.previous_graph_node==\"Download___87e6328ced294f8c9d28e2f3f52f8cac\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Upload Value___bb94ecf3be6747da850e8859af59f0ea\";gs.getMessageLang(\"Do you want to upload your document now?\", vaContext.getRequesterLang())","input_prompt_format_type":"text","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":true,"acknowledge_msg":"vaVars.previous_graph_node=\"Upload Value___bb94ecf3be6747da850e8859af59f0ea\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_Branch_b5e0d8a0d90544a09669a5f440d66908.reset();})();(function() {vaInputs.__silent_Branch_27c8ea1c0d3847c89880094642ea280a.reset();})();(function() {vaInputs.__silent_Decision_1bda97f2e36a4e13b777b0bd7092407f.reset();})();ackMsg;"},{"name":"__silent_ScriptedAction_19e0798eb29c4421aaa14c4fa83df3a4","applicable":"vaVars.previous_graph_node==\"Financial Aid Record Creation___bed558932c0841628e87b1c61e10b22a\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Upload Record Script___19e0798eb29c4421aaa14c4fa83df3a4\";(function execute() {(function execute(){\n\n    // The following code uses a default vaSystem method to attach the uploaded attachment to our target record    \n    vaSystem.attachToRecord(vaInputs.upload_file.getValue(),'x_snc_sfin_aid_financial_aid',vaInputs.financial_aid_record_creation);\n\n    })();})();vaInputs.__silent_ScriptedAction_19e0798eb29c4421aaa14c4fa83df3a4=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Upload Record Script___19e0798eb29c4421aaa14c4fa83df3a4\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_RecordOutputPrompt_7ef31c87cc7d44b5951e8ca24462df07.reset();})();ackMsg;"},{"name":"__silent_Decision_1bda97f2e36a4e13b777b0bd7092407f","applicable":"vaVars.previous_graph_node==\"Upload Value___bb94ecf3be6747da850e8859af59f0ea\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Decision___1bda97f2e36a4e13b777b0bd7092407f\";vaInputs.__silent_Decision_1bda97f2e36a4e13b777b0bd7092407f=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Decision___1bda97f2e36a4e13b777b0bd7092407f\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_Branch_b5e0d8a0d90544a09669a5f440d66908.reset();})();(function() {vaInputs.__silent_Branch_27c8ea1c0d3847c89880094642ea280a.reset();})();ackMsg;"},{"name":"__silent_Branch_b5e0d8a0d90544a09669a5f440d66908","applicable":"vaVars.previous_graph_node==\"Decision___1bda97f2e36a4e13b777b0bd7092407f\" &amp;&amp; ((vaInputs.upload_value.getValue() == \"Yes\"))","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Branch 2A: Upload Now___b5e0d8a0d90544a09669a5f440d66908\";vaInputs.__silent_Branch_b5e0d8a0d90544a09669a5f440d66908=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Branch 2A: Upload Now___b5e0d8a0d90544a09669a5f440d66908\";var ackMsg=null;ackMsg=null;vaInputs.upload_file.reset();(function() {vaInputs.upload_file.reset();})();ackMsg;"},{"name":"__silent_Branch_27c8ea1c0d3847c89880094642ea280a","applicable":"vaVars.previous_graph_node==\"Decision___1bda97f2e36a4e13b777b0bd7092407f\" &amp;&amp; ((vaInputs.upload_value.getValue() == \"No\"))","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Branch 2B: Upload Later___27c8ea1c0d3847c89880094642ea280a\";vaInputs.__silent_Branch_27c8ea1c0d3847c89880094642ea280a=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Branch 2B: Upload Later___27c8ea1c0d3847c89880094642ea280a\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_TextOutputPrompt_62d44140440b4157ae7f9b9b5cea236f.reset();})();ackMsg;"},{"name":"upload_file","applicable":"(vaVars.previous_graph_node==\"Branch 1: Upload___eb2b30e2a38b4479875147004b82733a\" || vaVars.previous_graph_node==\"Branch 2A: Upload Now___b5e0d8a0d90544a09669a5f440d66908\")","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Upload File___c7e4175a37cf4ecbb7b2a18a3c66bbe1\";gs.getMessageLang(\"Please upload your Financial Aid PDF\", vaContext.getRequesterLang())","input_prompt_format_type":"text","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":true,"acknowledge_msg":"vaVars.previous_graph_node=\"Upload File___c7e4175a37cf4ecbb7b2a18a3c66bbe1\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_CRUDAction_bed558932c0841628e87b1c61e10b22a.reset();})();ackMsg;"},{"name":"__silent_RecordOutputPrompt_7ef31c87cc7d44b5951e8ca24462df07","applicable":"vaVars.previous_graph_node==\"Upload Record Script___19e0798eb29c4421aaa14c4fa83df3a4\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Financial Aid Record Card___7ef31c87cc7d44b5951e8ca24462df07\";vaInputs.__silent_RecordOutputPrompt_7ef31c87cc7d44b5951e8ca24462df07=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Financial Aid Record Card___7ef31c87cc7d44b5951e8ca24462df07\";var ackMsg=null;ackMsg=(function execute() {return (function execute() {var output = new global.VaRecordCardOutput({\"number\":\"Number\",\"student\":\"Student\",\"sys_created_on\":\"Created\"});\nreturn output.build(vaInputs.financial_aid_record_creation,'x_snc_sfin_aid_financial_aid');\n})();})();(function() {vaInputs.__silent_TextOutputPrompt_838df255588246029c77a756bf260e22.reset();})();ackMsg;"},{"name":"__silent_TextOutputPrompt_838df255588246029c77a756bf260e22","applicable":"vaVars.previous_graph_node==\"Financial Aid Record Card___7ef31c87cc7d44b5951e8ca24462df07\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Verification Wait___838df255588246029c77a756bf260e22\";vaInputs.__silent_TextOutputPrompt_838df255588246029c77a756bf260e22=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Verification Wait___838df255588246029c77a756bf260e22\";var ackMsg=null;ackMsg=(function execute() {var textVariations = [function() { return gs.getMessageLang(\"Above is the provided number for your reference. Please wait as we verify your information.\", vaContext.getRequesterLang()) }];if (vaContext.global_record_in_progress) return textVariations[0]();var index = Math.floor(Math.random() * textVariations.length);return textVariations[index]();})();(function() {vaInputs.__silent_ScriptedAction_57885e62ef3c4b71935be058fb31d58b.reset();})();ackMsg;","acknowledge_msg_mask_type":"NONE"},{"name":"__silent_TextOutputPrompt_62d44140440b4157ae7f9b9b5cea236f","applicable":"vaVars.previous_graph_node==\"Branch 2B: Upload Later___27c8ea1c0d3847c89880094642ea280a\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Upload Later Confirmation___62d44140440b4157ae7f9b9b5cea236f\";vaInputs.__silent_TextOutputPrompt_62d44140440b4157ae7f9b9b5cea236f=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Upload Later Confirmation___62d44140440b4157ae7f9b9b5cea236f\";var ackMsg=null;ackMsg=(function execute() {var textVariations = [function() { return gs.getMessageLang(\"Thank you for downloading the Financial Aid Request form. You can revisit the chat and submit your form at a later date.\", vaContext.getRequesterLang()) }];if (vaContext.global_record_in_progress) return textVariations[0]();var index = Math.floor(Math.random() * textVariations.length);return textVariations[index]();})();(function() {vaInputs.__silent_TerminateGoal_91b1e29f62584c2494121b2451e11e6a.reset();})();ackMsg;","acknowledge_msg_mask_type":"NONE"},{"name":"__silent_TextOutputPrompt_3a07b3af03e643e28d288f5c40ecf104","applicable":"vaVars.previous_graph_node==\"Check for DocIntel Updates___57885e62ef3c4b71935be058fb31d58b\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Wait Node___3a07b3af03e643e28d288f5c40ecf104\";vaInputs.__silent_TextOutputPrompt_3a07b3af03e643e28d288f5c40ecf104=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Wait Node___3a07b3af03e643e28d288f5c40ecf104\";var ackMsg=null;ackMsg=(function execute() {var textVariations = [function() { return gs.getMessageLang(\"Please wait...\", vaContext.getRequesterLang()) }];if (vaContext.global_record_in_progress) return textVariations[0]();var index = Math.floor(Math.random() * textVariations.length);return textVariations[index]();})();(function() {vaInputs.__silent_Decision_5729466652064dde8c255e5064498e3e.reset();})();(function() {vaInputs.__silent_Branch_03e30fd229fa49898b6c5dd8089c67cb.reset();})();(function() {vaInputs.__silent_Branch_cdcc79a4fbfd46b68e6bc5ad61cea6ea.reset();})();ackMsg;","acknowledge_msg_mask_type":"NONE"},{"name":"__silent_Decision_5729466652064dde8c255e5064498e3e","applicable":"vaVars.previous_graph_node==\"Wait Node___3a07b3af03e643e28d288f5c40ecf104\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Decision___5729466652064dde8c255e5064498e3e\";vaInputs.__silent_Decision_5729466652064dde8c255e5064498e3e=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Decision___5729466652064dde8c255e5064498e3e\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_Branch_03e30fd229fa49898b6c5dd8089c67cb.reset();})();(function() {vaInputs.__silent_Branch_cdcc79a4fbfd46b68e6bc5ad61cea6ea.reset();})();ackMsg;"},{"name":"__silent_Branch_03e30fd229fa49898b6c5dd8089c67cb","applicable":"vaVars.previous_graph_node==\"Decision___5729466652064dde8c255e5064498e3e\" &amp;&amp; (function execute() {\n    if(vaVars.DocIntelCheck != 'Processed')\n    return true;\n})()\n","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Branch Looper: DocIntel Not Ready___03e30fd229fa49898b6c5dd8089c67cb\";vaInputs.__silent_Branch_03e30fd229fa49898b6c5dd8089c67cb=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Branch Looper: DocIntel Not Ready___03e30fd229fa49898b6c5dd8089c67cb\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_LibraryCall_33775167050d4970af5ef76b8ae0a900.reset();})();ackMsg;"},{"name":"__silent_Branch_cdcc79a4fbfd46b68e6bc5ad61cea6ea","applicable":"vaVars.previous_graph_node==\"Decision___5729466652064dde8c255e5064498e3e\" &amp;&amp; (function execute() {\n   if(vaVars.DocIntelCheck == 'Processed')\n    return true;\n})()\n","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Branch 1A: DocIntel Processed___cdcc79a4fbfd46b68e6bc5ad61cea6ea\";vaInputs.__silent_Branch_cdcc79a4fbfd46b68e6bc5ad61cea6ea=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Branch 1A: DocIntel Processed___cdcc79a4fbfd46b68e6bc5ad61cea6ea\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_ScriptedAction_ccb8d055c07b4936974077d963c03720.reset();})();ackMsg;"},{"name":"__silent_ScriptedAction_57885e62ef3c4b71935be058fb31d58b","applicable":"(vaVars.previous_graph_node==\"Verification Wait___838df255588246029c77a756bf260e22\" || vaVars.previous_graph_node==\"Pause Node___33775167050d4970af5ef76b8ae0a900\")","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Check for DocIntel Updates___57885e62ef3c4b71935be058fb31d58b\";(function execute() {(function execute() {\n   vaVars.DocIntelCheck = '';// Placeholder variable for Financial Aid Record State\n    gfin = new GlideRecord ('x_snc_sfin_aid_financial_aid');\n    gfin.addQuery('sys_id',vaInputs.financial_aid_record_creation); // Query the created Financial Aid Record\n    gfin.query();\n\n           while(gfin.next()){\n                vaVars.DocIntelCheck = gfin.getValue('u_state'); // Gather the State field\n           }\n})()\n;})();vaInputs.__silent_ScriptedAction_57885e62ef3c4b71935be058fb31d58b=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Check for DocIntel Updates___57885e62ef3c4b71935be058fb31d58b\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_TextOutputPrompt_3a07b3af03e643e28d288f5c40ecf104.reset();})();ackMsg;"},{"name":"__silent_LibraryCall_33775167050d4970af5ef76b8ae0a900","applicable":"vaVars.previous_graph_node==\"Branch Looper: DocIntel Not Ready___03e30fd229fa49898b6c5dd8089c67cb\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Pause Node___33775167050d4970af5ef76b8ae0a900\";(function execute() {(function execute() {vaSystem.invokeSubTopic('Pause', JSON.stringify({\"type\":\"LibraryCall\",\"type\":\"LibraryCall\",\"library_topic_name\":\"Pause\",\"library_topic_id\":\"da36dc0f534e2010c232ddeeff7b12d4\",\"parameter-mappings\":[{\"parameter-name\":\"seconds\",\"value\":{\"type\":\"String\",\"type\":\"String\",\"mode\":\"string\",\"value\":\"25\"},\"metadata\":{\"type\":\"String\",\"list\":false,\"use_items\":false}}],\"return-value-mappings\":[],\"id\":\"33775167050d4970af5ef76b8ae0a900\",\"name\":\"Pause Node\",\"goal_id\":\"primary\",\"applicability\":{\"type\":\"Applicability\",\"type\":\"Applicability\",\"mode\":\"script\",\"value\":\"true\"}}));})();})();vaInputs.__silent_LibraryCall_33775167050d4970af5ef76b8ae0a900=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Pause Node___33775167050d4970af5ef76b8ae0a900\";var ackMsg=null;ackMsg=null;vaInputs.__silent_ScriptedAction_57885e62ef3c4b71935be058fb31d58b.reset();(function() {vaInputs.__silent_ScriptedAction_57885e62ef3c4b71935be058fb31d58b.reset();})();ackMsg;"},{"name":"__silent_ScriptedAction_ccb8d055c07b4936974077d963c03720","applicable":"vaVars.previous_graph_node==\"Branch 1A: DocIntel Processed___cdcc79a4fbfd46b68e6bc5ad61cea6ea\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Financial Aid Verification___ccb8d055c07b4936974077d963c03720\";(function execute() {(function execute() {\n    // Script include to check the Verification of Student ID and submitted Estimated Expense Values\n       vaVars.FinVerify = new FinRegexVerification().FinancialAidRegex(vaInputs.financial_aid_record_creation.student,vaInputs.financial_aid_record_creation.student_id);\n    })();})();vaInputs.__silent_ScriptedAction_ccb8d055c07b4936974077d963c03720=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Financial Aid Verification___ccb8d055c07b4936974077d963c03720\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_Branch_a29fa1f16c3d4e619903708beb03d517.reset();})();(function() {vaInputs.__silent_Decision_213915bf327a420395e2a8317ec416c6.reset();})();(function() {vaInputs.__silent_Branch_ddd3741a02824625a62e974c2f1799a3.reset();})();ackMsg;"},{"name":"__silent_Decision_213915bf327a420395e2a8317ec416c6","applicable":"vaVars.previous_graph_node==\"Financial Aid Verification___ccb8d055c07b4936974077d963c03720\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Decision___213915bf327a420395e2a8317ec416c6\";vaInputs.__silent_Decision_213915bf327a420395e2a8317ec416c6=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Decision___213915bf327a420395e2a8317ec416c6\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_Branch_a29fa1f16c3d4e619903708beb03d517.reset();})();(function() {vaInputs.__silent_Branch_ddd3741a02824625a62e974c2f1799a3.reset();})();ackMsg;"},{"name":"__silent_Branch_a29fa1f16c3d4e619903708beb03d517","applicable":"vaVars.previous_graph_node==\"Decision___213915bf327a420395e2a8317ec416c6\" &amp;&amp; (function execute() {\n   if(vaVars.FinVerify == false) // check if finVerify is False if so continue this branch\n    return true;\n})()\n","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Branch 1B: FinVerify is False___a29fa1f16c3d4e619903708beb03d517\";vaInputs.__silent_Branch_a29fa1f16c3d4e619903708beb03d517=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Branch 1B: FinVerify is False___a29fa1f16c3d4e619903708beb03d517\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_TextOutputPrompt_53567607b3224370ab91fcf1ca208f58.reset();})();ackMsg;"},{"name":"__silent_Branch_ddd3741a02824625a62e974c2f1799a3","applicable":"vaVars.previous_graph_node==\"Decision___213915bf327a420395e2a8317ec416c6\" &amp;&amp; (function execute() {\n   if(vaVars.FinVerify == true) // check if finVerify is False if so continue this branch\n    return true;\n})()\n","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Branch 1C: FinVerify is True___ddd3741a02824625a62e974c2f1799a3\";vaInputs.__silent_Branch_ddd3741a02824625a62e974c2f1799a3=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Branch 1C: FinVerify is True___ddd3741a02824625a62e974c2f1799a3\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_ScriptedAction_57fae8e013ee4cf68cd13cbfe087db3f.reset();})();ackMsg;"},{"name":"__silent_TextOutputPrompt_53567607b3224370ab91fcf1ca208f58","applicable":"vaVars.previous_graph_node==\"Branch 1B: FinVerify is False___a29fa1f16c3d4e619903708beb03d517\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Invalid Submission___53567607b3224370ab91fcf1ca208f58\";vaInputs.__silent_TextOutputPrompt_53567607b3224370ab91fcf1ca208f58=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Invalid Submission___53567607b3224370ab91fcf1ca208f58\";var ackMsg=null;ackMsg=(function execute() {var textVariations = [function() { return gs.getMessageLang(\"Dear User, the request you submitted is invalid. The user ID does not exist or is not your ID. Students are not able to submit a request on another students behalf. This submission will be cancelled.\", vaContext.getRequesterLang()) }];if (vaContext.global_record_in_progress) return textVariations[0]();var index = Math.floor(Math.random() * textVariations.length);return textVariations[index]();})();(function() {vaInputs.__silent_CRUDAction_2a1b8c96f65a41fc82677925f88d267a.reset();})();ackMsg;","acknowledge_msg_mask_type":"NONE"},{"name":"__silent_ScriptedAction_57fae8e013ee4cf68cd13cbfe087db3f","applicable":"vaVars.previous_graph_node==\"Branch 1C: FinVerify is True___ddd3741a02824625a62e974c2f1799a3\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Expense Script Validation___57fae8e013ee4cf68cd13cbfe087db3f\";(function execute() {(function execute() {\n    \n    vaSystem.sendBatchedMessages(); // send any batched messages\n    vaVars.ReviewNeeded = false; // set review needed to false\n    var grExp = new GlideRecord('x_snc_sfin_aid_estimated_expenses') // expense Table\n    grExp.addEncodedQuery('financial_aid='+ vaInputs.financial_aid_record_creation);\n    grExp.query();\n\n      while(grExp.next()){\n\n         var VerifyReg = new FinRegexVerification();\n         var fieldMessage='';\n\n         fieldMessage = VerifyReg.ExpenseVerify( grExp.expense_type,grExp.dollar_value); \n         // call expenseverify script method\n          if(fieldMessage != 'Pass'){\n            // if it did not pass set the expense record to ReviewNeeded = true\n                vaVars.ReviewNeeded = true;\n                grExp.setValue('review_needed',true);\n                grExp.update();\n                 break;\n                }\n      }\n    })();})();vaInputs.__silent_ScriptedAction_57fae8e013ee4cf68cd13cbfe087db3f=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Expense Script Validation___57fae8e013ee4cf68cd13cbfe087db3f\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_Branch_297be5eedfe14f4fa62c3f6476e180db.reset();})();(function() {vaInputs.__silent_Decision_0ab4c1afdb9c4cb59bc5930ab909dea0.reset();})();(function() {vaInputs.__silent_Branch_4afc76fbaaf848d9aadcbd0c313a88f1.reset();})();ackMsg;"},{"name":"__silent_CRUDAction_2a1b8c96f65a41fc82677925f88d267a","applicable":"vaVars.previous_graph_node==\"Invalid Submission___53567607b3224370ab91fcf1ca208f58\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Cancel request___2a1b8c96f65a41fc82677925f88d267a\";(function execute() {(function execute() {var gr = new GlideRecord(\"x_snc_sfin_aid_financial_aid\");\ngr.get(vaInputs.financial_aid_record_creation);\ngr.applyEncodedQuery(\"u_state=Cancelled\");\ngr.update();\nvaInputs.financial_aid_record_creation = gr;})();})();vaInputs.__silent_CRUDAction_2a1b8c96f65a41fc82677925f88d267a=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Cancel request___2a1b8c96f65a41fc82677925f88d267a\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_TerminateGoal_91b1e29f62584c2494121b2451e11e6a.reset();})();ackMsg;"},{"name":"__silent_Decision_0ab4c1afdb9c4cb59bc5930ab909dea0","applicable":"vaVars.previous_graph_node==\"Expense Script Validation___57fae8e013ee4cf68cd13cbfe087db3f\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Decision___0ab4c1afdb9c4cb59bc5930ab909dea0\";vaInputs.__silent_Decision_0ab4c1afdb9c4cb59bc5930ab909dea0=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Decision___0ab4c1afdb9c4cb59bc5930ab909dea0\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_Branch_297be5eedfe14f4fa62c3f6476e180db.reset();})();(function() {vaInputs.__silent_Branch_4afc76fbaaf848d9aadcbd0c313a88f1.reset();})();ackMsg;"},{"name":"__silent_Branch_4afc76fbaaf848d9aadcbd0c313a88f1","applicable":"vaVars.previous_graph_node==\"Decision___0ab4c1afdb9c4cb59bc5930ab909dea0\" &amp;&amp;  (function execute() {\n         if(vaVars.ReviewNeeded == true)\n         return true;\n     })()","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Branch 1D: Review Needed___4afc76fbaaf848d9aadcbd0c313a88f1\";vaInputs.__silent_Branch_4afc76fbaaf848d9aadcbd0c313a88f1=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Branch 1D: Review Needed___4afc76fbaaf848d9aadcbd0c313a88f1\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_TextOutputPrompt_0e5fbbd3634b4e96a6267a9000cee639.reset();})();ackMsg;"},{"name":"__silent_Branch_297be5eedfe14f4fa62c3f6476e180db","applicable":"vaVars.previous_graph_node==\"Decision___0ab4c1afdb9c4cb59bc5930ab909dea0\" &amp;&amp; (function execute() {\n   if(vaVars.ReviewNeeded == false)\n   return true;\n})()\n","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Branch 1E: Review not needed___297be5eedfe14f4fa62c3f6476e180db\";vaInputs.__silent_Branch_297be5eedfe14f4fa62c3f6476e180db=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Branch 1E: Review not needed___297be5eedfe14f4fa62c3f6476e180db\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_CRUDAction_4ea7d5e95e7d452ea535bff0ff0b149d.reset();})();ackMsg;"},{"name":"__silent_TextOutputPrompt_0e5fbbd3634b4e96a6267a9000cee639","applicable":"vaVars.previous_graph_node==\"Branch 1D: Review Needed___4afc76fbaaf848d9aadcbd0c313a88f1\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Invalid Submission___0e5fbbd3634b4e96a6267a9000cee639\";vaInputs.__silent_TextOutputPrompt_0e5fbbd3634b4e96a6267a9000cee639=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Invalid Submission___0e5fbbd3634b4e96a6267a9000cee639\";var ackMsg=null;ackMsg=(function execute() {var textVariations = [function() { return gs.getMessageLang(\"One or more expense values have been inputted incorrectly. Please navigate to the portal view to fix.\", vaContext.getRequesterLang()) }];if (vaContext.global_record_in_progress) return textVariations[0]();var index = Math.floor(Math.random() * textVariations.length);return textVariations[index]();})();(function() {vaInputs.__silent_LinkOutputPrompt_b2f76c6f84f448c3b619d5fb045c4f22.reset();})();ackMsg;","acknowledge_msg_mask_type":"NONE"},{"name":"__silent_CRUDAction_4ea7d5e95e7d452ea535bff0ff0b149d","applicable":"vaVars.previous_graph_node==\"Branch 1E: Review not needed___297be5eedfe14f4fa62c3f6476e180db\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"User Qualifies___4ea7d5e95e7d452ea535bff0ff0b149d\";(function execute() {(function execute() {vaInputs.initialize(\"user_qualifies\");\nvar gr = new GlideRecord(\"x_snc_sfin_aid_financial_assistance_qualifications\");\ngr.initialize();\ngr.addEncodedQuery(\"student=\" + vaInputs.financial_aid_record_creation.student);\ngr.query();\nif (gr.next())\nvaInputs.user_qualifies = gr;})();})();vaInputs.__silent_CRUDAction_4ea7d5e95e7d452ea535bff0ff0b149d=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"User Qualifies___4ea7d5e95e7d452ea535bff0ff0b149d\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_Branch_a4d9d53b6d5743e9b887cc27852913e4.reset();})();(function() {vaInputs.__silent_Branch_858038e7f2da45c0a0ba043064a75c8b.reset();})();(function() {vaInputs.__silent_Decision_1a173faa9abf4dd4ac23bbf6ad1502ec.reset();})();ackMsg;"},{"name":"__silent_LinkOutputPrompt_b2f76c6f84f448c3b619d5fb045c4f22","applicable":"vaVars.previous_graph_node==\"Invalid Submission___0e5fbbd3634b4e96a6267a9000cee639\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Portal Link___b2f76c6f84f448c3b619d5fb045c4f22\";vaInputs.__silent_LinkOutputPrompt_b2f76c6f84f448c3b619d5fb045c4f22=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Portal Link___b2f76c6f84f448c3b619d5fb045c4f22\";var ackMsg=null;ackMsg=(function execute() {\nvar header=gs.getMessageLang(\"View ticket form\", vaContext.getRequesterLang());var label=\"\";var url= (function execute() {\n\n    var url = 'https://'+ gs.getProperty('instance_name') + '.lab.service-now.com/unow?sys_id='\n    + vaInputs.financial_aid_record_creation \n    + '&amp;view=sp&amp;id=financial_aid&amp;table=x_snc_sfin_aid_financial_aid';\n   \n    return url;\n     })();if (gs.nil(url)) return;var outMsg = new sn_cs.SinglePartOutMsg();outMsg.setLinkPart(header, label ? label : url, url);return outMsg;})();(function() {vaInputs.__silent_TerminateGoal_91b1e29f62584c2494121b2451e11e6a.reset();})();ackMsg;"},{"name":"__silent_Decision_1a173faa9abf4dd4ac23bbf6ad1502ec","applicable":"vaVars.previous_graph_node==\"User Qualifies___4ea7d5e95e7d452ea535bff0ff0b149d\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Decision___1a173faa9abf4dd4ac23bbf6ad1502ec\";vaInputs.__silent_Decision_1a173faa9abf4dd4ac23bbf6ad1502ec=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Decision___1a173faa9abf4dd4ac23bbf6ad1502ec\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_Branch_a4d9d53b6d5743e9b887cc27852913e4.reset();})();(function() {vaInputs.__silent_Branch_858038e7f2da45c0a0ba043064a75c8b.reset();})();ackMsg;"},{"name":"__silent_Branch_a4d9d53b6d5743e9b887cc27852913e4","applicable":"vaVars.previous_graph_node==\"Decision___1a173faa9abf4dd4ac23bbf6ad1502ec\" &amp;&amp; (function execute() {\n    //if use doesn't qualify continue on this branch\n   if(vaInputs.user_qualifies.qualification_check == false)\n    return true;\n})()\n","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Branch 1F: Doesn_q_t Qualify___a4d9d53b6d5743e9b887cc27852913e4\";vaInputs.__silent_Branch_a4d9d53b6d5743e9b887cc27852913e4=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Branch 1F: Doesn_q_t Qualify___a4d9d53b6d5743e9b887cc27852913e4\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_TextOutputPrompt_91473697c55b44e883fb375b83a905a7.reset();})();ackMsg;"},{"name":"__silent_Branch_858038e7f2da45c0a0ba043064a75c8b","applicable":"vaVars.previous_graph_node==\"Decision___1a173faa9abf4dd4ac23bbf6ad1502ec\" &amp;&amp; (function execute() {\n   if(vaInputs.user_qualifies.qualification_check == true)\n    return true;\n})()\n","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Branch 1G: Does Qualify___858038e7f2da45c0a0ba043064a75c8b\";vaInputs.__silent_Branch_858038e7f2da45c0a0ba043064a75c8b=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Branch 1G: Does Qualify___858038e7f2da45c0a0ba043064a75c8b\";var ackMsg=null;ackMsg=null;(function() {vaInputs.__silent_TextOutputPrompt_54b488bda9044279af5b91abb50c9427.reset();})();ackMsg;"},{"name":"__silent_TextOutputPrompt_91473697c55b44e883fb375b83a905a7","applicable":"vaVars.previous_graph_node==\"Branch 1F: Doesn_q_t Qualify___a4d9d53b6d5743e9b887cc27852913e4\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Submission Confirmation___91473697c55b44e883fb375b83a905a7\";vaInputs.__silent_TextOutputPrompt_91473697c55b44e883fb375b83a905a7=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Submission Confirmation___91473697c55b44e883fb375b83a905a7\";var ackMsg=null;ackMsg=(function execute() {var textVariations = [function() { return gs.getMessageLang(\"Thank you for submitting. The financial team will be reviewing your request.\", vaContext.getRequesterLang()) }];if (vaContext.global_record_in_progress) return textVariations[0]();var index = Math.floor(Math.random() * textVariations.length);return textVariations[index]();})();(function() {vaInputs.__silent_TerminateGoal_91b1e29f62584c2494121b2451e11e6a.reset();})();ackMsg;","acknowledge_msg_mask_type":"NONE"},{"name":"__silent_TextOutputPrompt_54b488bda9044279af5b91abb50c9427","applicable":"vaVars.previous_graph_node==\"Branch 1G: Does Qualify___858038e7f2da45c0a0ba043064a75c8b\"","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"Submission Congratulations___54b488bda9044279af5b91abb50c9427\";vaInputs.__silent_TextOutputPrompt_54b488bda9044279af5b91abb50c9427=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"Submission Congratulations___54b488bda9044279af5b91abb50c9427\";var ackMsg=null;ackMsg=(function execute() {var textVariations = [function() { return gs.getMessageLang(\"Congrats you pre-qualify for assistance! Your request has been completed!\", vaContext.getRequesterLang()) }];if (vaContext.global_record_in_progress) return textVariations[0]();var index = Math.floor(Math.random() * textVariations.length);return textVariations[index]();})();(function() {vaInputs.__silent_TerminateGoal_91b1e29f62584c2494121b2451e11e6a.reset();})();ackMsg;","acknowledge_msg_mask_type":"NONE"},{"name":"__silent_TerminateGoal_91b1e29f62584c2494121b2451e11e6a","applicable":"(vaVars.previous_graph_node==\"Portal Link___b2f76c6f84f448c3b619d5fb045c4f22\" || vaVars.previous_graph_node==\"Submission Confirmation___91473697c55b44e883fb375b83a905a7\" || vaVars.previous_graph_node==\"Submission Congratulations___54b488bda9044279af5b91abb50c9427\" || vaVars.previous_graph_node==\"Upload Later Confirmation___62d44140440b4157ae7f9b9b5cea236f\" || vaVars.previous_graph_node==\"Cancel request___2a1b8c96f65a41fc82677925f88d267a\" || vaVars.previous_graph_node==\"AI Search___361c1695597f429484f6dc656274e559\")","direction":"Input","required":true,"prompt_msg":"vaVars.previous_graph_node=\"End___91b1e29f62584c2494121b2451e11e6a\";vaInputs.__silent_TerminateGoal_91b1e29f62584c2494121b2451e11e6a=true;null;","confirm_msg_on_default_value":{"msg":"","val_for_confirm":true},"nlu_text_input":false,"nlu_confirmation_prompt":false,"acknowledge_msg":"vaVars.previous_graph_node=\"End___91b1e29f62584c2494121b2451e11e6a\";var ackMsg=null;ackMsg=null;vaVars.__segment_trigger_4ac53c6c00fb450b9a14a8e47039a47c_done=true;ackMsg;"}],"variables_update":[]}],"roles":[],"active":true,"published":true,"library":false,"expose_on_palette":false,"palette_label":"","flexible_conversation_switching":false,"design_categories":[],"nlu_provider":"","nlu_model":"","nlu_intent":"","topic_type":"STANDARD","channels":[],"triggerable_by_notification":false,"secure_custom_input_control":false,"score":0.0,"visible":true,"discoverable":true,"sys_scope":"57c1c9ca479d6910d92d7395d36d4362","sys_domain":"global","title":"Financial Aid Request VA Flow","nlu_intent_label":"","nlu_model_label":""}</definition><design_category/><discoverable>true</discoverable><expose_on_palette>false</expose_on_palette><flexible_conversation_switching>false</flexible_conversation_switching><is_system_topic>false</is_system_topic><key_phrases>Financial Aid Request VA Flow</key_phrases><last_published_on>2023-04-20 16:44:04</last_published_on><library>false</library><library_usage>null</library_usage><metaphone/><name>Financial Aid Request VA Flow</name><nlu_intent/><nlu_intent_label/><nlu_model/><nlu_model_label/><nlu_provider/><palette_label/><published>true</published><roles/><secure_custom_input_control>false</secure_custom_input_control><sys_class_name>sys_cs_topic</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-04-03 22:52:17</sys_created_on><sys_domain>global</sys_domain><sys_id>b8acd2a4504621107f447fa9874c56cd</sys_id><sys_mod_count>11</sys_mod_count><sys_name>Financial Aid Request VA Flow</sys_name><sys_package display_value="Student Financial Aid" source="x_snc_sfin_aid">57c1c9ca479d6910d92d7395d36d4362</sys_package><sys_policy/><sys_scope display_value="Student Financial Aid">57c1c9ca479d6910d92d7395d36d4362</sys_scope><sys_update_name>sys_cs_topic_b8acd2a4504621107f447fa9874c56cd</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-04-20 16:44:04</sys_updated_on><title>Financial Aid Request VA Flow</title><triggerable_by_notification>false</triggerable_by_notification><type>STANDARD</type><vendor display_value="ServiceNow">c2f0b8f187033200246ddd4c97cb0bb9</vendor><visible>true</visible></sys_cs_topic><sys_translated_text action="delete_multiple" query="documentkey=b8acd2a4504621107f447fa9874c56cd"/></record_update>]]></payload>
+<payload_hash>1053136867</payload_hash>
+<remote_update_set display_value="Exercise 3 Virtual Agent Flow - Completed">0dab6cc62d1221107f44d39608f92981</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-04-20 16:45:09</sys_created_on>
+<sys_id>89ab6cc62d1221107f44d39608f92982</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1879f8d37ed0000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-04-20 16:45:09</sys_updated_on>
+<table/>
+<target_name>Financial Aid Request VA Flow</target_name>
+<type>Topic</type>
+<update_domain>global</update_domain>
+<update_guid>456b28c6f7122110531fe6aee12814a5</update_guid>
+<update_guid_history>456b28c6f7122110531fe6aee12814a5:1053136867,94e9ab59cd9221101847fa3165d90cab:1447249899,0bf26351ee9221103419b9ce8f217f26:-2125537042,74f2235194922110b8b2ed703dd0889b:-891862908,624fb59d1b162110ccbdfd2ead15ce41:-891876389</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Student Financial Aid">57c1c9ca479d6910d92d7395d36d4362</application>
+<category>customer</category>
+<comments/>
+<name>sys_cb_topic_09a39a2c500621107f447fa9874c5607</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_cb_topic"><sys_cb_topic action="INSERT_OR_UPDATE"><applicability/><applicability_mode>query</applicability_mode><autopilot_topic>false</autopilot_topic><category/><channels/><connect_queue/><description>Financial Aid VA flow to assist students with their Financial Aid Request.</description><expose_on_palette>false</expose_on_palette><flexible_conversation_switching>false</flexible_conversation_switching><graph>{
+  "graph_api_version": "1.0.42",
+  "goals": {
+    "primary": {
+      "id": "primary",
+      "trigger": {
+        "type": "primary"
+      },
+      "name": "primary",
+      "applicability": "",
+      "description": "",
+      "nodes": {
+        "dd1ea7b28fb54c4f9e932952144530f7": {
+          "id": "dd1ea7b28fb54c4f9e932952144530f7",
+          "stepType": "Start",
+          "name": "Start",
+          "greetingResponse": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Greetings! I can help you submit a Financial Aid Application Request or provide you with the information to successfully submit a request."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          }
+        },
+        "91b1e29f62584c2494121b2451e11e6a": {
+          "id": "91b1e29f62584c2494121b2451e11e6a",
+          "stepType": "TerminateGoal",
+          "name": "End",
+          "confirmationMessage": {
+            "mode": "simple",
+            "value": ""
+          }
+        },
+        "5d740a3fc57146a2bf3bf170deffd4f6": {
+          "stepType": "ChoicePrompt",
+          "name": "Financial Aid topic options",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Here is how I can help you. Please choose an option from the following."
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "b5733c0d092e4db6b08dfd027debd677",
+          "id": "5d740a3fc57146a2bf3bf170deffd4f6",
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": true
+        },
+        "9d4d274d22af4cf1ba15eb4f72728677": {
+          "id": "9d4d274d22af4cf1ba15eb4f72728677",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "c7e4175a37cf4ecbb7b2a18a3c66bbe1": {
+          "id": "c7e4175a37cf4ecbb7b2a18a3c66bbe1",
+          "stepType": "Prompt",
+          "name": "Upload File",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Please upload your Financial Aid PDF"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "2c8dc927411948c8a3a71f49ad3e495b"
+        },
+        "bed558932c0841628e87b1c61e10b22a": {
+          "id": "bed558932c0841628e87b1c61e10b22a",
+          "stepType": "CrudAction",
+          "name": "Financial Aid Record Creation",
+          "template": "student={{vaInputs.user}}^u_state=New^u_contact_type=Self Service",
+          "mode": "create",
+          "record": "",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "2da4ceb466c44591b89ce4aece51a2c1"
+        },
+        "7ef31c87cc7d44b5951e8ca24462df07": {
+          "id": "7ef31c87cc7d44b5951e8ca24462df07",
+          "stepType": "RecordOutput",
+          "name": "Financial Aid Record Card",
+          "variableId": "2da4ceb466c44591b89ce4aece51a2c1",
+          "cardTemplate": "General",
+          "cardFields": {},
+          "mode": "variable",
+          "tableName": "x_snc_sfin_aid_financial_aid",
+          "fields": [
+            "number",
+            "student",
+            "sys_created_on"
+          ],
+          "cardDefinition": {
+            "name": "Record",
+            "value": "General"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "condition": {
+            "mode": "glide_query",
+            "value": ""
+          }
+        },
+        "838df255588246029c77a756bf260e22": {
+          "id": "838df255588246029c77a756bf260e22",
+          "stepType": "TextOutput",
+          "name": "Verification Wait",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Above is the provided number for your reference. Please wait as we verify your information."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "4d6c4bb76c9741e5990a7670692a1e6f"
+            }
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "57885e62ef3c4b71935be058fb31d58b": {
+          "id": "57885e62ef3c4b71935be058fb31d58b",
+          "name": "Check for DocIntel Updates",
+          "script": "(function execute() {\n   vaVars.DocIntelCheck = '';// Placeholder variable for Financial Aid Record State\n    gfin = new GlideRecord ('x_snc_sfin_aid_financial_aid');\n    gfin.addQuery('sys_id',vaInputs.financial_aid_record_creation); // Query the created Financial Aid Record\n    gfin.query();\n\n           while(gfin.next()){\n                vaVars.DocIntelCheck = gfin.getValue('u_state'); // Gather the State field\n           }\n})()\n",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "3a07b3af03e643e28d288f5c40ecf104": {
+          "id": "3a07b3af03e643e28d288f5c40ecf104",
+          "stepType": "TextOutput",
+          "name": "Wait Node",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Please wait..."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "c068b846e9394b92af6ead6978fabcf3"
+            }
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "5729466652064dde8c255e5064498e3e": {
+          "id": "5729466652064dde8c255e5064498e3e",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "213915bf327a420395e2a8317ec416c6": {
+          "id": "213915bf327a420395e2a8317ec416c6",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "53567607b3224370ab91fcf1ca208f58": {
+          "id": "53567607b3224370ab91fcf1ca208f58",
+          "stepType": "TextOutput",
+          "name": "Invalid Submission",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Dear User, the request you submitted is invalid. The user ID does not exist or is not your ID. Students are not able to submit a request on another students behalf. This submission will be cancelled."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "da67525e827f4a51807ec48d794ed320"
+            }
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "0ab4c1afdb9c4cb59bc5930ab909dea0": {
+          "id": "0ab4c1afdb9c4cb59bc5930ab909dea0",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "0e5fbbd3634b4e96a6267a9000cee639": {
+          "id": "0e5fbbd3634b4e96a6267a9000cee639",
+          "stepType": "TextOutput",
+          "name": "Invalid Submission",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "One or more expense values have been inputted incorrectly. Please navigate to the portal view to fix."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "ec2e576491d24dbeaef977a053480a96"
+            }
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "b2f76c6f84f448c3b619d5fb045c4f22": {
+          "id": "b2f76c6f84f448c3b619d5fb045c4f22",
+          "stepType": "LinkOutput",
+          "name": "Portal Link",
+          "url": {
+            "value": " (function execute() {\n\n    var url = 'https://'+ gs.getProperty('instance_name') + '.lab.service-now.com/unow?sys_id='\n    + vaInputs.financial_aid_record_creation \n    + '&amp;view=sp&amp;id=financial_aid&amp;table=x_snc_sfin_aid_financial_aid';\n   \n    return url;\n     })()",
+            "mode": "script"
+          },
+          "label": {
+            "value": "",
+            "mode": "simple"
+          },
+          "header": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "View ticket form"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "linkType": "single",
+          "introMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "listOfLinks": ""
+        },
+        "4ea7d5e95e7d452ea535bff0ff0b149d": {
+          "id": "4ea7d5e95e7d452ea535bff0ff0b149d",
+          "stepType": "LookupRecord",
+          "name": "User Qualifies",
+          "condition": {
+            "mode": "glide_query",
+            "value": "student={{vaInputs.financial_aid_record_creation.student}}"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "782d8512a9c646f1a3710b62f8e7de00"
+        },
+        "1a173faa9abf4dd4ac23bbf6ad1502ec": {
+          "id": "1a173faa9abf4dd4ac23bbf6ad1502ec",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "91473697c55b44e883fb375b83a905a7": {
+          "id": "91473697c55b44e883fb375b83a905a7",
+          "stepType": "TextOutput",
+          "name": "Submission Confirmation",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Thank you for submitting. The financial team will be reviewing your request."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "db1a212a028b4182bab3509345f11f72"
+            }
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "54b488bda9044279af5b91abb50c9427": {
+          "id": "54b488bda9044279af5b91abb50c9427",
+          "stepType": "TextOutput",
+          "name": "Submission Congratulations",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Congrats you pre-qualify for assistance! Your request has been completed!"
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "037ad0240f654f9aa31eedf66bb224a9"
+            }
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "bb94ecf3be6747da850e8859af59f0ea": {
+          "stepType": "ChoicePrompt",
+          "name": "Upload Value",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "Do you want to upload your document now?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "variableId": "55e0cb617e80416fbbf174239f064c42",
+          "id": "bb94ecf3be6747da850e8859af59f0ea",
+          "hasCardHeader": false,
+          "cardMetadata": {
+            "mode": "card",
+            "metadataScript": "",
+            "cardTemplate": "",
+            "cardFields": {},
+            "cardDefinition": {}
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false
+        },
+        "1bda97f2e36a4e13b777b0bd7092407f": {
+          "id": "1bda97f2e36a4e13b777b0bd7092407f",
+          "stepType": "Decision",
+          "name": "Decision"
+        },
+        "62d44140440b4157ae7f9b9b5cea236f": {
+          "id": "62d44140440b4157ae7f9b9b5cea236f",
+          "stepType": "TextOutput",
+          "name": "Upload Later Confirmation",
+          "secure": false,
+          "value": [
+            {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "Thank you for downloading the Financial Aid Request form. You can revisit the chat and submit your form at a later date."
+                    }
+                  ]
+                }
+              ],
+              "mode": "simple",
+              "_key": "919b92577843421a932344f9c8564fa6"
+            }
+          ],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "ec577ab551e140ebac29792453bb26f8": {
+          "id": "ec577ab551e140ebac29792453bb26f8",
+          "stepType": "Prompt",
+          "name": "Enter Search Description",
+          "prompt": {
+            "value": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "text": "What can I assist you with?"
+                  }
+                ]
+              }
+            ],
+            "mode": "simple"
+          },
+          "confirmMessage": {
+            "value": "",
+            "mode": "simple"
+          },
+          "acknowledgeMsg": {
+            "value": "",
+            "mode": "simple"
+          },
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "skippable": {
+            "value": "",
+            "mode": "query"
+          },
+          "defaultValue": {
+            "value": "",
+            "mode": "simple"
+          },
+          "withNluUserInput": false,
+          "skipIfFulfilled": false,
+          "variableId": "a0f2d2b99c014ae59ace2d143dbaad19",
+          "inputType": {
+            "format": "Text",
+            "script": ""
+          }
+        },
+        "19e0798eb29c4421aaa14c4fa83df3a4": {
+          "id": "19e0798eb29c4421aaa14c4fa83df3a4",
+          "name": "Upload Record Script",
+          "script": "(function execute(){\n\n    // The following code uses a default vaSystem method to attach the uploaded attachment to our target record    \n    vaSystem.attachToRecord(vaInputs.upload_file.getValue(),'x_snc_sfin_aid_financial_aid',vaInputs.financial_aid_record_creation);\n\n    })()",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "33775167050d4970af5ef76b8ae0a900": {
+          "id": "33775167050d4970af5ef76b8ae0a900",
+          "stepType": "Component",
+          "name": "Pause Node",
+          "fields": [],
+          "reusableTopicId": "da36dc0f534e2010c232ddeeff7b12d4",
+          "reusableTopicChoice": "Pause",
+          "sourceType": "TOPIC_BLOCK",
+          "loading": false,
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "inputs": {
+            "seconds": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": "25"
+                    }
+                  ]
+                }
+              ],
+              "mode": "string",
+              "type": "String"
+            }
+          },
+          "outputs": [],
+          "outdatedNote": false,
+          "variableIds": []
+        },
+        "ccb8d055c07b4936974077d963c03720": {
+          "id": "ccb8d055c07b4936974077d963c03720",
+          "name": "Financial Aid Verification",
+          "script": "(function execute() {\n    // Script include to check the Verification of Student ID and submitted Estimated Expense Values\n       vaVars.FinVerify = new FinRegexVerification().FinancialAidRegex(vaInputs.financial_aid_record_creation.student,vaInputs.financial_aid_record_creation.student_id);\n    })()",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "2a1b8c96f65a41fc82677925f88d267a": {
+          "id": "2a1b8c96f65a41fc82677925f88d267a",
+          "stepType": "CrudAction",
+          "name": "Cancel request",
+          "template": "u_state=Cancelled",
+          "mode": "update",
+          "record": "2da4ceb466c44591b89ce4aece51a2c1",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "variableId": "3ecc70bdfcd8443abb7e2a5db08ea536"
+        },
+        "57fae8e013ee4cf68cd13cbfe087db3f": {
+          "id": "57fae8e013ee4cf68cd13cbfe087db3f",
+          "name": "Expense Script Validation",
+          "script": "(function execute() {\n    \n    vaSystem.sendBatchedMessages(); // send any batched messages\n    vaVars.ReviewNeeded = false; // set review needed to false\n    var grExp = new GlideRecord('x_snc_sfin_aid_estimated_expenses') // expense Table\n    grExp.addEncodedQuery('financial_aid='+ vaInputs.financial_aid_record_creation);\n    grExp.query();\n\n      while(grExp.next()){\n\n         var VerifyReg = new FinRegexVerification();\n         var fieldMessage='';\n\n         fieldMessage = VerifyReg.ExpenseVerify( grExp.expense_type,grExp.dollar_value); \n         // call expenseverify script method\n          if(fieldMessage != 'Pass'){\n            // if it did not pass set the expense record to ReviewNeeded = true\n                vaVars.ReviewNeeded = true;\n                grExp.setValue('review_needed',true);\n                grExp.update();\n                 break;\n                }\n      }\n    })()",
+          "stepType": "ScriptAction",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "87e6328ced294f8c9d28e2f3f52f8cac": {
+          "id": "87e6328ced294f8c9d28e2f3f52f8cac",
+          "stepType": "HtmlOutput",
+          "name": "Download",
+          "value": "&lt;html&gt;\n &lt;body&gt;\n&lt;!-- This creates a link of the attachment from the attachment table--&gt;\n&lt;p&gt;\n&lt;a href='sys_attachment.do?sys_id=769d847e47696910d92d7395d36d4343' rel='nofollow'&gt; Financial Aid Request Form PDF&lt;/a&gt;\n&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;",
+          "height": "0",
+          "width": "0",
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          }
+        },
+        "361c1695597f429484f6dc656274e559": {
+          "id": "361c1695597f429484f6dc656274e559",
+          "stepType": "ReusableTopic",
+          "name": "AI Search",
+          "fields": [],
+          "applicability": {
+            "value": "",
+            "mode": "query"
+          },
+          "reusableTopicChoice": "AI Search",
+          "reusableTopicId": "b19775fa536310103296ddeeff7b12ff",
+          "inputs": {
+            "search_term": {
+              "value": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "text": ""
+                    },
+                    {
+                      "type": "datapill",
+                      "dataPill": {
+                        "value": "{{vaInputs.enter_search_description}}",
+                        "displayValue": "Input Variables➛Enter Search Description"
+                      },
+                      "children": [
+                        {
+                          "text": ""
+                        }
+                      ]
+                    },
+                    {
+                      "text": ""
+                    }
+                  ]
+                }
+              ],
+              "mode": "string",
+              "type": "String"
+            },
+            "search_application_configuration": {
+              "value": "fdb27706832525501ddcc730ceaad328",
+              "mode": "string",
+              "type": "Reference",
+              "table": "sys_search_context_config"
+            },
+            "ask_another_search": {
+              "value": "false",
+              "mode": "simple",
+              "type": "True/False"
+            }
+          },
+          "outputs": [
+            {
+              "id": "9154bc6eb1c34ac799e0245943316563",
+              "value": "geniussearchresults",
+              "mapping": "geniussearchresults"
+            },
+            {
+              "id": "57cfde3b1d3844038836dc65440daf38",
+              "value": "searchresults",
+              "mapping": "searchresults"
+            },
+            {
+              "id": "ebfa5231c4624231910bb8c13ac69846",
+              "value": "shouldaskinfohelpful",
+              "mapping": "shouldaskinfohelpful"
+            },
+            {
+              "id": "b5868542678741669eb907265a8e2203",
+              "value": "newsearchterm",
+              "mapping": "newsearchterm"
+            },
+            {
+              "id": "8d8eef2d163743d4a1ab479b2e4e4f01",
+              "value": "shouldrunfallbacktopic",
+              "mapping": "shouldrunfallbacktopic"
+            }
+          ],
+          "variableIds": [
+            "9154bc6eb1c34ac799e0245943316563",
+            "57cfde3b1d3844038836dc65440daf38",
+            "ebfa5231c4624231910bb8c13ac69846",
+            "b5868542678741669eb907265a8e2203",
+            "8d8eef2d163743d4a1ab479b2e4e4f01"
+          ]
+        }
+      },
+      "edges": [
+        {
+          "id": "78f7975f37f0461eb97c397ba2d3e707",
+          "edgeType": "Edge",
+          "source": "dd1ea7b28fb54c4f9e932952144530f7",
+          "target": "5d740a3fc57146a2bf3bf170deffd4f6",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "e0fafc04fda54b8bb38196e6f4a2b3d2",
+          "edgeType": "Edge",
+          "source": "5d740a3fc57146a2bf3bf170deffd4f6",
+          "target": "9d4d274d22af4cf1ba15eb4f72728677",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "96367deff81649e3899a70e980e69cdd",
+          "edgeType": "Branch",
+          "source": "9d4d274d22af4cf1ba15eb4f72728677",
+          "target": "c7e4175a37cf4ecbb7b2a18a3c66bbe1",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.financial_aid_topic_options=upload form",
+            "mode": "query"
+          },
+          "label": "Branch 1: Upload"
+        },
+        {
+          "id": "739dd8cfd9474c2991d5770485804749",
+          "edgeType": "Edge",
+          "source": "c7e4175a37cf4ecbb7b2a18a3c66bbe1",
+          "target": "bed558932c0841628e87b1c61e10b22a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9f1b5d70bc0a4fc5bda6ae4e8ae3c253",
+          "edgeType": "Edge",
+          "source": "7ef31c87cc7d44b5951e8ca24462df07",
+          "target": "838df255588246029c77a756bf260e22",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "7174958bd54040349fcde94ca29f147b",
+          "edgeType": "Edge",
+          "source": "838df255588246029c77a756bf260e22",
+          "target": "57885e62ef3c4b71935be058fb31d58b",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "a5e0124dd5c54476b9925f1e5db28beb",
+          "edgeType": "Edge",
+          "source": "57885e62ef3c4b71935be058fb31d58b",
+          "target": "3a07b3af03e643e28d288f5c40ecf104",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "357d204d174a4a1d95ba051322946cbe",
+          "edgeType": "Edge",
+          "source": "3a07b3af03e643e28d288f5c40ecf104",
+          "target": "5729466652064dde8c255e5064498e3e",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "06e61d475ab4477c8912009e5f289517",
+          "edgeType": "Branch",
+          "source": "213915bf327a420395e2a8317ec416c6",
+          "target": "53567607b3224370ab91fcf1ca208f58",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n   if(vaVars.FinVerify == false) // check if finVerify is False if so continue this branch\n    return true;\n})()\n"
+          },
+          "label": "Branch 1B: FinVerify is False"
+        },
+        {
+          "id": "a5932a9a0324440193b1a4285dfc253c",
+          "edgeType": "Branch",
+          "source": "0ab4c1afdb9c4cb59bc5930ab909dea0",
+          "target": "0e5fbbd3634b4e96a6267a9000cee639",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": " (function execute() {\n         if(vaVars.ReviewNeeded == true)\n         return true;\n     })()"
+          },
+          "label": "Branch 1D: Review Needed"
+        },
+        {
+          "id": "7aef3ce880474f11ab4caabbb57b4dc4",
+          "edgeType": "Edge",
+          "source": "0e5fbbd3634b4e96a6267a9000cee639",
+          "target": "b2f76c6f84f448c3b619d5fb045c4f22",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "29808cb1516c41a2a3847d36fe76f136",
+          "edgeType": "Edge",
+          "source": "b2f76c6f84f448c3b619d5fb045c4f22",
+          "target": "91b1e29f62584c2494121b2451e11e6a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2cd5a46263964faba8396263a298b268",
+          "edgeType": "Branch",
+          "source": "0ab4c1afdb9c4cb59bc5930ab909dea0",
+          "target": "4ea7d5e95e7d452ea535bff0ff0b149d",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n   if(vaVars.ReviewNeeded == false)\n   return true;\n})()\n"
+          },
+          "label": "Branch 1E: Review not needed"
+        },
+        {
+          "id": "f48b5648231e4517ab74be44ce789c62",
+          "edgeType": "Edge",
+          "source": "4ea7d5e95e7d452ea535bff0ff0b149d",
+          "target": "1a173faa9abf4dd4ac23bbf6ad1502ec",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "e28a3b8221d946feb0e7d94b5ea95feb",
+          "edgeType": "Branch",
+          "source": "1a173faa9abf4dd4ac23bbf6ad1502ec",
+          "target": "91473697c55b44e883fb375b83a905a7",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    //if use doesn't qualify continue on this branch\n   if(vaInputs.user_qualifies.qualification_check == false)\n    return true;\n})()\n"
+          },
+          "label": "Branch 1F: Doesn't Qualify"
+        },
+        {
+          "id": "c525e429105f4f9e87213d3e02d4f477",
+          "edgeType": "Edge",
+          "source": "91473697c55b44e883fb375b83a905a7",
+          "target": "91b1e29f62584c2494121b2451e11e6a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "e8b6695660e243dfb282b18efd5ac281",
+          "edgeType": "Branch",
+          "source": "1a173faa9abf4dd4ac23bbf6ad1502ec",
+          "target": "54b488bda9044279af5b91abb50c9427",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n   if(vaInputs.user_qualifies.qualification_check == true)\n    return true;\n})()\n"
+          },
+          "label": "Branch 1G: Does Qualify"
+        },
+        {
+          "id": "b3ec9fc653f9431c9f5b0c29580ead16",
+          "edgeType": "Edge",
+          "source": "54b488bda9044279af5b91abb50c9427",
+          "target": "91b1e29f62584c2494121b2451e11e6a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "fa6db76e30834c4a9b0fe46f09427546",
+          "edgeType": "Edge",
+          "source": "bb94ecf3be6747da850e8859af59f0ea",
+          "target": "1bda97f2e36a4e13b777b0bd7092407f",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "f7776177d53546e69606f7afe9ceacc8",
+          "edgeType": "Branch",
+          "source": "1bda97f2e36a4e13b777b0bd7092407f",
+          "target": "c7e4175a37cf4ecbb7b2a18a3c66bbe1",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.upload_value=Yes",
+            "mode": "query"
+          },
+          "label": "Branch 2A: Upload Now"
+        },
+        {
+          "id": "3deb1f42e97b47de98a0756881b2a50c",
+          "edgeType": "Branch",
+          "source": "1bda97f2e36a4e13b777b0bd7092407f",
+          "target": "62d44140440b4157ae7f9b9b5cea236f",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.upload_value=No",
+            "mode": "query"
+          },
+          "label": "Branch 2B: Upload Later"
+        },
+        {
+          "id": "6ed7c0eff88846af94d466da8b46608a",
+          "edgeType": "Edge",
+          "source": "62d44140440b4157ae7f9b9b5cea236f",
+          "target": "91b1e29f62584c2494121b2451e11e6a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "6174b2ac1c47404e8b77013d13f0a833",
+          "edgeType": "Branch",
+          "source": "9d4d274d22af4cf1ba15eb4f72728677",
+          "target": "ec577ab551e140ebac29792453bb26f8",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.financial_aid_topic_options=get info",
+            "mode": "query"
+          },
+          "label": "Branch 3: Get Information"
+        },
+        {
+          "id": "97c75bcb0e2c4381a8d0f5080a0d4bf2",
+          "edgeType": "Edge",
+          "source": "bed558932c0841628e87b1c61e10b22a",
+          "target": "19e0798eb29c4421aaa14c4fa83df3a4",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9486fd5f481d4098b91d56654f4c28e8",
+          "edgeType": "Edge",
+          "source": "19e0798eb29c4421aaa14c4fa83df3a4",
+          "target": "7ef31c87cc7d44b5951e8ca24462df07",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "ab169fb1caa943138dff75a8842e028b",
+          "edgeType": "Branch",
+          "source": "5729466652064dde8c255e5064498e3e",
+          "target": "33775167050d4970af5ef76b8ae0a900",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n    if(vaVars.DocIntelCheck != 'Processed')\n    return true;\n})()\n"
+          },
+          "label": "Branch Looper: DocIntel Not Ready"
+        },
+        {
+          "id": "9d468b5485774552969a463560d96646",
+          "edgeType": "Edge",
+          "source": "33775167050d4970af5ef76b8ae0a900",
+          "target": "57885e62ef3c4b71935be058fb31d58b",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "3af00dd66b344bc9927043bb76eca897",
+          "edgeType": "Branch",
+          "source": "5729466652064dde8c255e5064498e3e",
+          "target": "ccb8d055c07b4936974077d963c03720",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n   if(vaVars.DocIntelCheck == 'Processed')\n    return true;\n})()\n"
+          },
+          "label": "Branch 1A: DocIntel Processed"
+        },
+        {
+          "id": "96ce67d1afd4434e9fa709308d64b73f",
+          "edgeType": "Edge",
+          "source": "ccb8d055c07b4936974077d963c03720",
+          "target": "213915bf327a420395e2a8317ec416c6",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "ac5f2d471fe64f16a231536aaf14eae2",
+          "edgeType": "Edge",
+          "source": "53567607b3224370ab91fcf1ca208f58",
+          "target": "2a1b8c96f65a41fc82677925f88d267a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "1e577071898549388dfca6822731499c",
+          "edgeType": "Edge",
+          "source": "2a1b8c96f65a41fc82677925f88d267a",
+          "target": "91b1e29f62584c2494121b2451e11e6a",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "9d3c7a934f43433bbc59f81dd32c35c7",
+          "edgeType": "Branch",
+          "source": "213915bf327a420395e2a8317ec416c6",
+          "target": "57fae8e013ee4cf68cd13cbfe087db3f",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "mode": "script",
+            "value": "(function execute() {\n   if(vaVars.FinVerify == true) // check if finVerify is False if so continue this branch\n    return true;\n})()\n"
+          },
+          "label": "Branch 1C: FinVerify is True"
+        },
+        {
+          "id": "17d919f0ee434f9eafe034d58b3dd235",
+          "edgeType": "Edge",
+          "source": "57fae8e013ee4cf68cd13cbfe087db3f",
+          "target": "0ab4c1afdb9c4cb59bc5930ab909dea0",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "cdf60c0a38b043ec82fe6b7419ffaea9",
+          "edgeType": "Branch",
+          "source": "9d4d274d22af4cf1ba15eb4f72728677",
+          "target": "87e6328ced294f8c9d28e2f3f52f8cac",
+          "sourcePort": "",
+          "targetPort": "",
+          "expression": {
+            "value": "vaInputs.financial_aid_topic_options=download form",
+            "mode": "query"
+          },
+          "label": "Branch 2: Download"
+        },
+        {
+          "id": "4950e689df5c47ff9b88c3d98ccd4c91",
+          "edgeType": "Edge",
+          "source": "87e6328ced294f8c9d28e2f3f52f8cac",
+          "target": "bb94ecf3be6747da850e8859af59f0ea",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "065de797f4d0445685842fd098a0ec98",
+          "edgeType": "Edge",
+          "source": "ec577ab551e140ebac29792453bb26f8",
+          "target": "361c1695597f429484f6dc656274e559",
+          "sourcePort": "",
+          "targetPort": ""
+        },
+        {
+          "id": "2bcf2afdd0144a378b036bd62d9fd19c",
+          "edgeType": "Edge",
+          "source": "361c1695597f429484f6dc656274e559",
+          "target": "91b1e29f62584c2494121b2451e11e6a",
+          "sourcePort": "",
+          "targetPort": ""
+        }
+      ]
+    }
+  },
+  "variables": {
+    "current-user": {
+      "category": "vaInputs",
+      "id": "current-user",
+      "label": "User",
+      "name": "user",
+      "table": "sys_user",
+      "varType": "reference"
+    },
+    "b5733c0d092e4db6b08dfd027debd677": {
+      "id": "b5733c0d092e4db6b08dfd027debd677",
+      "name": "financial_aid_topic_options",
+      "label": "Financial Aid Topic Options",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Upload a completed form for submission",
+          "value": "upload form"
+        },
+        {
+          "label": "Download a blank Financial Aid Request form",
+          "value": "download form"
+        },
+        {
+          "label": "Get information on Financial Aid Requests",
+          "value": "get info",
+          "checked": true
+        }
+      ],
+      "category": "vaInputs",
+      "nodeId": "5d740a3fc57146a2bf3bf170deffd4f6",
+      "isHidden": false
+    },
+    "2c8dc927411948c8a3a71f49ad3e495b": {
+      "id": "2c8dc927411948c8a3a71f49ad3e495b",
+      "name": "upload_file",
+      "label": "Upload File",
+      "varType": "file",
+      "secure": false,
+      "category": "vaInputs",
+      "nodeId": "c7e4175a37cf4ecbb7b2a18a3c66bbe1",
+      "isHidden": false
+    },
+    "2da4ceb466c44591b89ce4aece51a2c1": {
+      "id": "2da4ceb466c44591b89ce4aece51a2c1",
+      "name": "financial_aid_record_creation",
+      "label": "Financial Aid Record Creation",
+      "varType": "reference",
+      "table": "x_snc_sfin_aid_financial_aid",
+      "inactive": false,
+      "category": "vaInputs",
+      "nodeId": "7ef31c87cc7d44b5951e8ca24462df07",
+      "isHidden": false
+    },
+    "d46e1f39052e4e0288d29157763b1e8d": {
+      "id": "d46e1f39052e4e0288d29157763b1e8d",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "DocIntelCheck",
+      "label": "DocIntelCheck",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "55018cb5de73445082e5c1acdb8c3610": {
+      "id": "55018cb5de73445082e5c1acdb8c3610",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "FinVerify",
+      "label": "FinVerify",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "a29e3981fec84ee58163d8684ebf6768": {
+      "id": "a29e3981fec84ee58163d8684ebf6768",
+      "value": {
+        "value": "",
+        "mode": "simple"
+      },
+      "name": "ReviewNeeded",
+      "label": "ReviewNeeded",
+      "varType": "script",
+      "category": "vaVars"
+    },
+    "782d8512a9c646f1a3710b62f8e7de00": {
+      "id": "782d8512a9c646f1a3710b62f8e7de00",
+      "name": "user_qualifies",
+      "label": "User Qualifies",
+      "varType": "reference",
+      "table": "x_snc_sfin_aid_financial_assistance_qualifications",
+      "category": "vaInputs",
+      "nodeId": "4ea7d5e95e7d452ea535bff0ff0b149d",
+      "isHidden": false
+    },
+    "55e0cb617e80416fbbf174239f064c42": {
+      "id": "55e0cb617e80416fbbf174239f064c42",
+      "name": "upload_value",
+      "label": "Upload Value",
+      "varType": "choice",
+      "choices": [
+        {
+          "label": "Yes",
+          "value": "Yes"
+        },
+        {
+          "label": "No",
+          "value": "No"
+        }
+      ],
+      "category": "vaInputs",
+      "nodeId": "bb94ecf3be6747da850e8859af59f0ea",
+      "isHidden": false
+    },
+    "a0f2d2b99c014ae59ace2d143dbaad19": {
+      "id": "a0f2d2b99c014ae59ace2d143dbaad19",
+      "name": "enter_search_description",
+      "label": "Enter Search Description",
+      "varType": "string",
+      "secure": false,
+      "category": "vaInputs",
+      "encryptionHashFunction": "SHA-256",
+      "encryptionSalt": {
+        "value": "MTY4MDU2MjIwMzg3OSBWQSBEZXNpZ25lciBpcyBhd2Vzb21l",
+        "mode": "simple"
+      },
+      "nodeId": "ec577ab551e140ebac29792453bb26f8",
+      "isHidden": false
+    },
+    "3ecc70bdfcd8443abb7e2a5db08ea536": {
+      "id": "3ecc70bdfcd8443abb7e2a5db08ea536",
+      "name": "cancel_request",
+      "label": "Cancel Request",
+      "varType": "reference",
+      "table": "",
+      "inactive": true,
+      "category": "vaInputs",
+      "nodeId": "2a1b8c96f65a41fc82677925f88d267a",
+      "isHidden": false
+    },
+    "9154bc6eb1c34ac799e0245943316563": {
+      "id": "9154bc6eb1c34ac799e0245943316563",
+      "name": "geniussearchresults",
+      "label": "Geniussearchresults",
+      "defaultValue": "geniussearchresults",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "nodeId": "361c1695597f429484f6dc656274e559",
+      "isHidden": false
+    },
+    "57cfde3b1d3844038836dc65440daf38": {
+      "id": "57cfde3b1d3844038836dc65440daf38",
+      "name": "searchresults",
+      "label": "Searchresults",
+      "defaultValue": "searchresults",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "nodeId": "361c1695597f429484f6dc656274e559",
+      "isHidden": false
+    },
+    "ebfa5231c4624231910bb8c13ac69846": {
+      "id": "ebfa5231c4624231910bb8c13ac69846",
+      "name": "shouldaskinfohelpful",
+      "label": "Shouldaskinfohelpful",
+      "defaultValue": "shouldaskinfohelpful",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "nodeId": "361c1695597f429484f6dc656274e559",
+      "isHidden": false
+    },
+    "b5868542678741669eb907265a8e2203": {
+      "id": "b5868542678741669eb907265a8e2203",
+      "name": "newsearchterm",
+      "label": "Newsearchterm",
+      "defaultValue": "newsearchterm",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "nodeId": "361c1695597f429484f6dc656274e559",
+      "isHidden": false
+    },
+    "8d8eef2d163743d4a1ab479b2e4e4f01": {
+      "id": "8d8eef2d163743d4a1ab479b2e4e4f01",
+      "name": "shouldrunfallbacktopic",
+      "label": "Shouldrunfallbacktopic",
+      "defaultValue": "shouldrunfallbacktopic",
+      "varType": "string",
+      "category": "vaInputs",
+      "metadata": {
+        "libraryMappingType": "output"
+      },
+      "nodeId": "361c1695597f429484f6dc656274e559",
+      "isHidden": false
+    }
+  }
+}</graph><key_phrases>Financial Aid Request VA Flow</key_phrases><library>false</library><live_agent>false</live_agent><name>Financial Aid Request VA Flow</name><nlu_intent/><nlu_intent_label/><nlu_model/><nlu_model_label/><nlu_provider/><palette_label/><roles/><root_topic_id/><secure_custom_input_control>false</secure_custom_input_control><source_topic_id/><sys_class_name>sys_cb_topic</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2023-04-03 22:12:59</sys_created_on><sys_domain>global</sys_domain><sys_id>09a39a2c500621107f447fa9874c5607</sys_id><sys_mod_count>20</sys_mod_count><sys_name>Financial Aid Request VA Flow</sys_name><sys_package display_value="Student Financial Aid" source="x_snc_sfin_aid">57c1c9ca479d6910d92d7395d36d4362</sys_package><sys_policy/><sys_scope display_value="Student Financial Aid">57c1c9ca479d6910d92d7395d36d4362</sys_scope><sys_update_name>sys_cb_topic_09a39a2c500621107f447fa9874c5607</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2023-04-20 16:43:34</sys_updated_on><triggerable_by_notification>false</triggerable_by_notification><type>STANDARD</type></sys_cb_topic></record_update>]]></payload>
+<payload_hash>1669133774</payload_hash>
+<remote_update_set display_value="Exercise 3 Virtual Agent Flow - Completed">0dab6cc62d1221107f44d39608f92981</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2023-04-20 16:45:09</sys_created_on>
+<sys_id>c5ab6cc62d1221107f44d39608f92982</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1879f8cc7780000001</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2023-04-20 16:45:09</sys_updated_on>
+<table/>
+<target_name>Financial Aid Request VA Flow</target_name>
+<type>Topic</type>
+<update_domain>global</update_domain>
+<update_guid>c24b64c6e6122110be98cb5cb09586d3</update_guid>
+<update_guid_history>c24b64c6e6122110be98cb5cb09586d3:1669133774,76d92fd5a9922110ff84364e7d482187:2017143810,39f267599e5221102beee6396f831373:-51723367,410f9fd999522110230c9462e5634937:953685208,c25c1759a1522110db2590a4209b8834:-1427648952,aa4fb59db9162110711bb87724e01938:-1534416029</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
