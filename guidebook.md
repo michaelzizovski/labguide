@@ -846,7 +846,7 @@ The objective of this exercise is to introduce the participant to Document Intel
 
     ![](images/DI_document_tasks_RL.png)
 
-    > We've set the Fields and Field groups for extraction. To create a DocIntel task for processing follow the below notes. *Note the below FYI section about *Document Task creation* shows the simplicity of submitting a task for processing and is optional for the lab, it is purely for your information*
+    > We've set the Fields and Field groups for extraction. To create a DocIntel task for processing follow the below notes. *Note the below FYI section about Document Task creation shows the simplicity of submitting a task for processing and is optional for the lab, it is purely for your information*
 
     > **FYI**: Click the **New** button on the **Document Task** related list. Provide a **Display Name** and using the **Paper Clip** icon on the top right of the form header, attach a financial aid document for processing. *That is all that is needed to submit a task for processing!* **DO NOT SUBMIT/PROCESS THE TASK**.
 
