@@ -203,7 +203,7 @@ The objective of this exercise is to introduce the lab participant to NLU workbe
 
 1. Continue to keep the *Try model* side bar open and enter the test sample **Turning in a FAFSA**
 
-1. Observe that there is no intent. The model *may* match with the *End Conversation* intent matches at around 60% which is below the model thresholds highlighted in dark grey.
+1. Observe that there is no intent. The model *may* match with the *End Conversation* intent at around 60% which is below the model thresholds highlighted in dark grey.
 
     ![](images/NLUWB_test_sample_2.png)
 
@@ -258,7 +258,7 @@ In order to tune the model, *Vocabulary* will be added to make the model underst
     | Field | Value |
     |-------|-------|
     | Type | Pattern |
-    | Vocabulary (Regex) | \b(?i)FINAID\d{0,}\b |
+    | Vocabulary (Regex) | ```\b(?i)FINAID\d{0,}\b``` |
     | Synonym | financial aid request record |
 
     > Note: Ensure there are no typos in your Regex.
@@ -312,7 +312,7 @@ We will now add *Vocabulary* to make the model understand the concept of FAFSA m
     | Field | Value |
     |-------|-------|
     | Type | Pattern |
-    | Vocabulary (Regex) | \b(?i)FAFSA\b |
+    | Vocabulary (Regex) | ```\b(?i)FAFSA\b``` |
     | Synonym | federal aid application |
 
     ![](images/NLUWB_test_sample_3_FAFSA_Vocab_2.png)
@@ -514,7 +514,7 @@ The objective of this exercise is to introduce the lab participant to the Virtua
 
     ![](images/NewVAImage1StartBlock.png)
 
-1. Below the *Start* block is a *User Input* block called **Static Choice**. The response block will present the user with 3 options to explore the flow
+1. Below the *Start* block is a *User Input* block called **Financial Aid topic options** (i.e. Static Choice). The response block will present the user with 3 options to explore the flow
 
     | Display name | Values to store |
     |-------|-------|
@@ -541,6 +541,7 @@ Place your attention to *Branch 1: Upload*. We will begin editing this branch.
 > Each of the following section heading is labelled after a branch. Unless specified all additions will take under the branch with the same heading.
 
 1. Starting the branch is the *User Input* **File Picker** block named *Upload File*
+
     > The *File Picker* allows users to upload files into the instance.
 
 1. Click on the **File Picker** block, the *Property Sheet* appears with the following:
@@ -1173,11 +1174,9 @@ The objective of this exercise is for the reader to test out the application by 
 
 1. When prompted enter the following *Search Term* **How to fill out the FAFSA form** to be searched by AI Search and submit the term
 
-1. AI Search will return either an extracted segment of content from a knowledge article or the top 3 Articles with the first being 
+1. AI Search will return  an extracted segment of content from a knowledge article and the top 3 articles when *Show me more* is selected
 
     ![](images/TestCase6_result_1.png)
-
-    ![](images/TestCase6_result_2.png)
 
 ## Validation
 
