@@ -1344,6 +1344,6 @@ The primary purpose of NLU Entity is to link the entity to the Virtual Agent Inp
 
 1. Impersonate as one of Student users from earlier, and test your changes in the 'UNOW' Portal
 
-1. Use a test sample like **I want to download a FINAID form** and verify that the initial choice node is skipped.
+1. Use a test sample like **I want to download a FINAID form** and verify that the initial choice node is skipped
 
     ![](images/NLUEntity_map_test_result.png)
